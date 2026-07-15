@@ -382,46 +382,482 @@
               </form>
             </div>
 
-            <div class="dashboard-card settings-card">
-              <h3>Landing Page Content</h3>
+            <div
+              class="dashboard-card settings-card"
+              style="grid-column: span 2"
+            >
+              <h3>Landing Page Content Editor</h3>
               <form class="settings-form" id="landingPageForm">
-                <div class="form-group-sm">
-                  <label>Hero Title</label>
-                  <input type="text" id="setHeroTitle" required />
-                </div>
-                <div class="form-group-sm">
-                  <label>Hero Tagline</label>
-                  <input type="text" id="setHeroTagline" required />
-                </div>
-                <div class="form-group-sm">
-                  <label>Contact Phone</label>
-                  <input type="text" id="setPhone" required />
-                </div>
-                <div class="form-group-sm">
-                  <label>Contact Email</label>
-                  <input type="email" id="setEmail" required />
-                </div>
-                <div class="form-group-sm">
-                  <label>Contact Address</label>
-                  <input type="text" id="setAddress" required />
-                </div>
-                <div class="form-group-sm">
-                  <label>Working Hours</label>
-                  <input type="text" id="setHours" required />
-                </div>
-                <div class="form-group-sm">
-                  <label>Clients Counter</label>
-                  <input type="number" id="setClients" required />
-                </div>
-                <div class="form-group-sm">
-                  <label>Fleet Cars Counter</label>
-                  <input type="number" id="setCars" required />
-                </div>
-                <div class="form-group-sm">
-                  <label>Rating Counter</label>
-                  <input type="number" step="0.1" id="setRating" required />
-                </div>
-                <button type="submit" class="btn-primary-sm">
+                <!-- Fieldset 1: Hero & Promos -->
+                <fieldset
+                  style="
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <legend
+                    style="
+                      font-weight: 700;
+                      color: var(--accent);
+                      padding: 0 10px;
+                    "
+                  >
+                    Hero & Promos
+                  </legend>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 16px;
+                      margin-top: 10px;
+                    "
+                  >
+                    <div class="form-group-sm">
+                      <label>Hero Title</label>
+                      <input type="text" id="setHeroTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Hero Tagline</label>
+                      <input type="text" id="setHeroTagline" required />
+                    </div>
+                    <div class="form-group-sm" style="grid-column: span 2">
+                      <label>Hero Subtitle</label>
+                      <textarea
+                        id="setHeroSub"
+                        rows="2"
+                        required
+                        style="
+                          width: 100%;
+                          border: 1px solid var(--border);
+                          border-radius: 4px;
+                          padding: 8px;
+                          font-family: inherit;
+                          background: var(--bg);
+                          color: var(--text);
+                        "
+                      ></textarea>
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Hero Button Text</label>
+                      <input type="text" id="setHeroBtnText" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Promo Banner Text</label>
+                      <input type="text" id="setPromoText" required />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Fieldset 2: About Us & Stats -->
+                <fieldset
+                  style="
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <legend
+                    style="
+                      font-weight: 700;
+                      color: var(--accent);
+                      padding: 0 10px;
+                    "
+                  >
+                    About & Stats
+                  </legend>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 16px;
+                      margin-top: 10px;
+                    "
+                  >
+                    <div class="form-group-sm">
+                      <label>About Us Title</label>
+                      <input type="text" id="setAboutTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Clients Counter</label>
+                      <input type="number" id="setClients" required />
+                    </div>
+                    <div class="form-group-sm" style="grid-column: span 2">
+                      <label>About Us Text</label>
+                      <textarea
+                        id="setAboutText"
+                        rows="3"
+                        required
+                        style="
+                          width: 100%;
+                          border: 1px solid var(--border);
+                          border-radius: 4px;
+                          padding: 8px;
+                          font-family: inherit;
+                          background: var(--bg);
+                          color: var(--text);
+                        "
+                      ></textarea>
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Fleet Cars Counter</label>
+                      <input type="number" id="setCars" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Rating Counter</label>
+                      <input type="number" step="0.1" id="setRating" required />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Fieldset 3: Services (4 cards) -->
+                <fieldset
+                  style="
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <legend
+                    style="
+                      font-weight: 700;
+                      color: var(--accent);
+                      padding: 0 10px;
+                    "
+                  >
+                    Services
+                  </legend>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 16px;
+                      margin-top: 10px;
+                    "
+                  >
+                    <div class="form-group-sm">
+                      <label>Service 1 Title</label>
+                      <input type="text" id="setSrv1Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Service 1 Description</label>
+                      <input type="text" id="setSrv1Desc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Service 2 Title</label>
+                      <input type="text" id="setSrv2Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Service 2 Description</label>
+                      <input type="text" id="setSrv2Desc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Service 3 Title</label>
+                      <input type="text" id="setSrv3Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Service 3 Description</label>
+                      <input type="text" id="setSrv3Desc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Service 4 Title</label>
+                      <input type="text" id="setSrv4Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Service 4 Description</label>
+                      <input type="text" id="setSrv4Desc" required />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Fieldset 4: Why Choose Us & How It Works -->
+                <fieldset
+                  style="
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <legend
+                    style="
+                      font-weight: 700;
+                      color: var(--accent);
+                      padding: 0 10px;
+                    "
+                  >
+                    Why Us & Process Steps
+                  </legend>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 16px;
+                      margin-top: 10px;
+                    "
+                  >
+                    <div class="form-group-sm" style="grid-column: span 2">
+                      <label>Why Choose Us Headline</label>
+                      <input type="text" id="setWhyTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Feature 1 (Premium Fleet)</label>
+                      <input type="text" id="setWhy1Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Feature 1 Desc</label>
+                      <input type="text" id="setWhy1Desc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Feature 2 (Best Price)</label>
+                      <input type="text" id="setWhy2Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Feature 2 Desc</label>
+                      <input type="text" id="setWhy2Desc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Feature 3 (24/7 Support)</label>
+                      <input type="text" id="setWhy3Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Feature 3 Desc</label>
+                      <input type="text" id="setWhy3Desc" required />
+                    </div>
+                    <div
+                      class="form-group-sm"
+                      style="
+                        grid-column: span 2;
+                        border-top: 1px solid var(--border);
+                        padding-top: 15px;
+                        margin-top: 10px;
+                      "
+                    >
+                      <label>How It Works Headline</label>
+                      <input type="text" id="setProcTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Step 1 (Select Vehicle)</label>
+                      <input type="text" id="setProc1Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Step 1 Desc</label>
+                      <input type="text" id="setProc1Desc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Step 2 (Choose Dates)</label>
+                      <input type="text" id="setProc2Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Step 2 Desc</label>
+                      <input type="text" id="setProc2Desc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Step 3 (Enjoy Journey)</label>
+                      <input type="text" id="setProc3Title" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Step 3 Desc</label>
+                      <input type="text" id="setProc3Desc" required />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Fieldset 5: Dynamic Headers, Safety, Loyalty & CTAs -->
+                <fieldset
+                  style="
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <legend
+                    style="
+                      font-weight: 700;
+                      color: var(--accent);
+                      padding: 0 10px;
+                    "
+                  >
+                    Banners & Dynamic Headers
+                  </legend>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 16px;
+                      margin-top: 10px;
+                    "
+                  >
+                    <div class="form-group-sm">
+                      <label>Fleet Catalog Title</label>
+                      <input type="text" id="setCatalogTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Fleet Catalog Subtitle</label>
+                      <input type="text" id="setCatalogSub" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Packages Section Title</label>
+                      <input type="text" id="setPackagesTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Packages Section Subtitle</label>
+                      <input type="text" id="setPackagesSub" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Safety Section Title</label>
+                      <input type="text" id="setSafetyTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Safety Section Description</label>
+                      <input type="text" id="setSafetyDesc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Loyalty Club Title</label>
+                      <input type="text" id="setLoyaltyTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Loyalty Club Description</label>
+                      <input type="text" id="setLoyaltyDesc" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Middle CTA Title</label>
+                      <input type="text" id="setCtaTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Middle CTA Description</label>
+                      <input type="text" id="setCtaDesc" required />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Fieldset 6: T&C, FAQ & Contact Details -->
+                <fieldset
+                  style="
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <legend
+                    style="
+                      font-weight: 700;
+                      color: var(--accent);
+                      padding: 0 10px;
+                    "
+                  >
+                    Requirements, FAQs & Contact
+                  </legend>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 16px;
+                      margin-top: 10px;
+                    "
+                  >
+                    <div class="form-group-sm" style="grid-column: span 2">
+                      <label>Requirements Title</label>
+                      <input type="text" id="setTermsTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Requirement 1</label>
+                      <input type="text" id="setTerm1" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Requirement 2</label>
+                      <input type="text" id="setTerm2" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Requirement 3</label>
+                      <input type="text" id="setTerm3" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Requirement 4</label>
+                      <input type="text" id="setTerm4" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>FAQ Section Title</label>
+                      <input type="text" id="setFaqTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>FAQ Section Subtitle</label>
+                      <input type="text" id="setFaqSub" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Contact Phone</label>
+                      <input type="text" id="setPhone" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Contact Email</label>
+                      <input type="email" id="setEmail" required />
+                    </div>
+                    <div class="form-group-sm" style="grid-column: span 2">
+                      <label>Contact Address</label>
+                      <input type="text" id="setAddress" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Working Hours</label>
+                      <input type="text" id="setHours" required />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Fieldset 7: News & Footer -->
+                <fieldset
+                  style="
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <legend
+                    style="
+                      font-weight: 700;
+                      color: var(--accent);
+                      padding: 0 10px;
+                    "
+                  >
+                    Newsletters & Footer
+                  </legend>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 16px;
+                      margin-top: 10px;
+                    "
+                  >
+                    <div class="form-group-sm">
+                      <label>Newsletter Title</label>
+                      <input type="text" id="setNewsTitle" required />
+                    </div>
+                    <div class="form-group-sm">
+                      <label>Newsletter Description</label>
+                      <input type="text" id="setNewsDesc" required />
+                    </div>
+                    <div class="form-group-sm" style="grid-column: span 2">
+                      <label>Footer Brand Desc</label>
+                      <input type="text" id="setFooterDesc" required />
+                    </div>
+                    <div class="form-group-sm" style="grid-column: span 2">
+                      <label>Footer Copyright Text</label>
+                      <input type="text" id="setCopyright" required />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <button
+                  type="submit"
+                  class="btn-primary-sm"
+                  style="font-size: 1rem; padding: 12px 24px"
+                >
                   Update Landing Page
                 </button>
               </form>

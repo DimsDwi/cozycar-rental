@@ -835,39 +835,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ===== SETTINGS FORMS POPULATING & SUBMISSION ===== */
   function populateSettingsForms() {
-    const landing = JSON.parse(
-      localStorage.getItem("cozycar_landing_data"),
-    ) || {
-      heroTitle: "Search and book your cozy car here",
-      heroTagline: "Premium · Reliable · Affordable",
-      phone: "+62 812 3456 7890",
-      email: "hello@rentcarpremium.id",
-      address: "Jl. Malioboro No. 88, Yogyakarta 55271",
-      hours: "Mon–Sat: 08.00–20.00 WIB",
-      clients: 500,
-      cars: 30,
-      rating: 5,
+    const landing =
+      JSON.parse(localStorage.getItem("cozycar_landing_data")) || {};
+
+    const setVal = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.value = val || "";
     };
 
-    const titleInput = document.getElementById("setHeroTitle");
-    const taglineInput = document.getElementById("setHeroTagline");
-    const phoneInput = document.getElementById("setPhone");
-    const emailInput = document.getElementById("setEmail");
-    const addressInput = document.getElementById("setAddress");
-    const hoursInput = document.getElementById("setHours");
-    const clientsInput = document.getElementById("setClients");
-    const carsInput = document.getElementById("setCars");
-    const ratingInput = document.getElementById("setRating");
+    // Hero & Promo
+    setVal("setHeroTitle", landing.heroTitle);
+    setVal("setHeroTagline", landing.heroTagline);
+    setVal("setHeroSub", landing.heroSub);
+    setVal("setHeroBtnText", landing.heroBtnText);
+    setVal("setPromoText", landing.promoText);
 
-    if (titleInput) titleInput.value = landing.heroTitle;
-    if (taglineInput) taglineInput.value = landing.heroTagline;
-    if (phoneInput) phoneInput.value = landing.phone;
-    if (emailInput) emailInput.value = landing.email;
-    if (addressInput) addressInput.value = landing.address;
-    if (hoursInput) hoursInput.value = landing.hours;
-    if (clientsInput) clientsInput.value = landing.clients;
-    if (carsInput) carsInput.value = landing.cars;
-    if (ratingInput) ratingInput.value = landing.rating;
+    // About & Stats
+    setVal("setAboutTitle", landing.aboutTitle);
+    setVal("setAboutText", landing.aboutText);
+    setVal("setClients", landing.clients);
+    setVal("setCars", landing.cars);
+    setVal("setRating", landing.rating);
+
+    // Services
+    setVal("setSrv1Title", landing.srv1Title);
+    setVal("setSrv1Desc", landing.srv1Desc);
+    setVal("setSrv2Title", landing.srv2Title);
+    setVal("setSrv2Desc", landing.srv2Desc);
+    setVal("setSrv3Title", landing.srv3Title);
+    setVal("setSrv3Desc", landing.srv3Desc);
+    setVal("setSrv4Title", landing.srv4Title);
+    setVal("setSrv4Desc", landing.srv4Desc);
+
+    // Why Choose Us & Process
+    setVal("setWhyTitle", landing.whyTitle);
+    setVal("setWhy1Title", landing.why1Title);
+    setVal("setWhy1Desc", landing.why1Desc);
+    setVal("setWhy2Title", landing.why2Title);
+    setVal("setWhy2Desc", landing.why2Desc);
+    setVal("setWhy3Title", landing.why3Title);
+    setVal("setWhy3Desc", landing.why3Desc);
+    setVal("setProcTitle", landing.procTitle);
+    setVal("setProc1Title", landing.proc1Title);
+    setVal("setProc1Desc", landing.proc1Desc);
+    setVal("setProc2Title", landing.proc2Title);
+    setVal("setProc2Desc", landing.proc2Desc);
+    setVal("setProc3Title", landing.proc3Title);
+    setVal("setProc3Desc", landing.proc3Desc);
+
+    // Headers & Safety & Loyalty
+    setVal("setCatalogTitle", landing.catalogTitle);
+    setVal("setCatalogSub", landing.catalogSub);
+    setVal("setPackagesTitle", landing.packagesTitle);
+    setVal("setPackagesSub", landing.packagesSub);
+    setVal("setSafetyTitle", landing.safetyTitle);
+    setVal("setSafetyDesc", landing.safetyDesc);
+    setVal("setLoyaltyTitle", landing.loyaltyTitle);
+    setVal("setLoyaltyDesc", landing.loyaltyDesc);
+    setVal("setCtaTitle", landing.ctaTitle);
+    setVal("setCtaDesc", landing.ctaDesc);
+
+    // T&C, FAQ & Contact
+    setVal("setTermsTitle", landing.termsTitle);
+    setVal("setTerm1", landing.term1);
+    setVal("setTerm2", landing.term2);
+    setVal("setTerm3", landing.term3);
+    setVal("setTerm4", landing.term4);
+    setVal("setFaqTitle", landing.faqTitle);
+    setVal("setFaqSub", landing.faqSub);
+    setVal("setPhone", landing.phone);
+    setVal("setEmail", landing.email);
+    setVal("setAddress", landing.address);
+    setVal("setHours", landing.hours);
+
+    // News & Footer
+    setVal("setNewsTitle", landing.newsTitle);
+    setVal("setNewsDesc", landing.newsDesc);
+    setVal("setFooterDesc", landing.footerDesc);
+    setVal("setCopyright", landing.copyright);
   }
 
   // Bind settings forms submissions
@@ -875,16 +920,77 @@ document.addEventListener("DOMContentLoaded", () => {
   if (landingPageForm) {
     landingPageForm.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      const getVal = (id) => {
+        const el = document.getElementById(id);
+        return el ? el.value.trim() : "";
+      };
+
       const updatedLanding = {
-        heroTitle: document.getElementById("setHeroTitle").value.trim(),
-        heroTagline: document.getElementById("setHeroTagline").value.trim(),
-        phone: document.getElementById("setPhone").value.trim(),
-        email: document.getElementById("setEmail").value.trim(),
-        address: document.getElementById("setAddress").value.trim(),
-        hours: document.getElementById("setHours").value.trim(),
-        clients: parseInt(document.getElementById("setClients").value) || 500,
-        cars: parseInt(document.getElementById("setCars").value) || 30,
-        rating: parseFloat(document.getElementById("setRating").value) || 5,
+        heroTitle: getVal("setHeroTitle"),
+        heroTagline: getVal("setHeroTagline"),
+        heroSub: getVal("setHeroSub"),
+        heroBtnText: getVal("setHeroBtnText"),
+        promoText: getVal("setPromoText"),
+        aboutTitle: getVal("setAboutTitle"),
+        aboutText: getVal("setAboutText"),
+        clients: parseInt(getVal("setClients")) || 500,
+        cars: parseInt(getVal("setCars")) || 30,
+        rating: parseFloat(getVal("setRating")) || 5,
+
+        srv1Title: getVal("setSrv1Title"),
+        srv1Desc: getVal("setSrv1Desc"),
+        srv2Title: getVal("setSrv2Title"),
+        srv2Desc: getVal("setSrv2Desc"),
+        srv3Title: getVal("setSrv3Title"),
+        srv3Desc: getVal("setSrv3Desc"),
+        srv4Title: getVal("setSrv4Title"),
+        srv4Desc: getVal("setSrv4Desc"),
+
+        whyTitle: getVal("setWhyTitle"),
+        why1Title: getVal("setWhy1Title"),
+        why1Desc: getVal("setWhy1Desc"),
+        why2Title: getVal("setWhy2Title"),
+        why2Desc: getVal("setWhy2Desc"),
+        why3Title: getVal("setWhy3Title"),
+        why3Desc: getVal("setWhy3Desc"),
+
+        procTitle: getVal("setProcTitle"),
+        proc1Title: getVal("setProc1Title"),
+        proc1Desc: getVal("setProc1Desc"),
+        proc2Title: getVal("setProc2Title"),
+        proc2Desc: getVal("setProc2Desc"),
+        proc3Title: getVal("setProc3Title"),
+        proc3Desc: getVal("setProc3Desc"),
+
+        catalogTitle: getVal("setCatalogTitle"),
+        catalogSub: getVal("setCatalogSub"),
+        packagesTitle: getVal("setPackagesTitle"),
+        packagesSub: getVal("setPackagesSub"),
+        safetyTitle: getVal("setSafetyTitle"),
+        safetyDesc: getVal("setSafetyDesc"),
+        loyaltyTitle: getVal("setLoyaltyTitle"),
+        loyaltyDesc: getVal("setLoyaltyDesc"),
+        ctaTitle: getVal("setCtaTitle"),
+        ctaDesc: getVal("setCtaDesc"),
+
+        termsTitle: getVal("setTermsTitle"),
+        term1: getVal("setTerm1"),
+        term2: getVal("setTerm2"),
+        term3: getVal("setTerm3"),
+        term4: getVal("setTerm4"),
+
+        faqTitle: getVal("setFaqTitle"),
+        faqSub: getVal("setFaqSub"),
+        phone: getVal("setPhone"),
+        email: getVal("setEmail"),
+        address: getVal("setAddress"),
+        hours: getVal("setHours"),
+
+        newsTitle: getVal("setNewsTitle"),
+        newsDesc: getVal("setNewsDesc"),
+        footerDesc: getVal("setFooterDesc"),
+        copyright: getVal("setCopyright"),
       };
 
       localStorage.setItem(

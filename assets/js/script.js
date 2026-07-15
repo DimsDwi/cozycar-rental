@@ -133,34 +133,6 @@ const defaultFleet = [
     status: "available",
   },
   {
-    name: "Toyota Etios",
-    category: "economy",
-    img: "https://th.bing.com/th/id/OIP.eQrUA0qv_53PCn4i0zDPHgHaE8?w=278&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "Reliable and practical, the Toyota Etios is a solid choice for budget-conscious travellers who still expect solid build quality and responsive handling.",
-    features: [
-      "AC",
-      "Power Windows",
-      "USB Charger",
-      "Central Lock",
-      "AM/FM Radio",
-    ],
-    icons: [
-      "fa-wind",
-      "fa-car-side",
-      "fa-usb",
-      "fa-lock",
-      "fa-broadcast-tower",
-    ],
-    transmission: "Manual",
-    seats: "5 Seats",
-    fuel: "Petrol",
-    baggage: "Medium",
-    price: "Rp 280.000/day",
-    badge: "Economy",
-    badgeClass: "economy",
-    status: "available",
-  },
-  {
     name: "Toyota Alphard",
     category: "premium",
     img: "https://th.bing.com/th/id/OIP.Qn-1zHXewPxutdXA5yAZLQHaE8?w=240&h=150&c=6&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
@@ -206,46 +178,100 @@ const defaultFleet = [
     badgeClass: "van",
     status: "available",
   },
-  {
-    name: "Skoda Kodiaq",
-    category: "suv",
-    img: "https://th.bing.com/th/id/OIP.9dppdRpbWoQh_RIjaWYaTgHaEK?w=307&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "European engineering meets Indonesian roads. The Skoda Kodiaq offers impressive DSG transmission, panoramic roof, and premium interior finishes rarely found in this segment.",
-    features: [
-      "Panoramic Roof",
-      "GPS Navigation",
-      "Bluetooth",
-      "USB Charger",
-      "Lane Assist",
-      "Park Assist",
-    ],
-    icons: [
-      "fa-sun",
-      "fa-map-marker-alt",
-      "fa-bluetooth",
-      "fa-usb",
-      "fa-road",
-      "fa-parking",
-    ],
-    transmission: "DSG",
-    seats: "7 Seats",
-    fuel: "Petrol",
-    baggage: "Extra Large",
-    price: "Rp 1.100.000/day",
-    badge: "SUV",
-    badgeClass: "suv",
-    status: "available",
-  },
 ];
 
-// Default Landing Page Text Data
+// Fallback Default Landing Page Text Data for ALL sections
 const defaultLandingData = {
-  heroTitle: "Search and book your cozy car here",
+  // Hero Section
   heroTagline: "Premium · Reliable · Affordable",
+  heroTitle: "Search and book your cozy car here",
+  heroSub:
+    "Premium car rental experience with modern vehicles, affordable pricing, and easy booking system.",
+  heroBtnText: "Explore Fleet",
+  // Promo Tape
+  promoText:
+    "🎉 Get 20% discount on your first booking! Use coupon code: COZYFIRST20",
+  // About Us
+  aboutTitle: "Who We Are",
+  aboutText:
+    "CozyCar Rental is Yogyakarta's premier transport solution. Established in 2018, we have served over 10,000+ satisfied clients. We offer high-quality self-drive cars, cars with experienced tour drivers, wedding transportation, and corporate mobility.",
+  // Services
+  srv1Title: "Self Drive Rental",
+  srv1Desc:
+    "Rent a car and drive yourself around. Flexible daily or weekly plans.",
+  srv2Title: "Driver Included",
+  srv2Desc:
+    "Rent with our experienced, polite, and english-speaking local drivers.",
+  srv3Title: "Airport Transfer",
+  srv3Desc: "Hassle-free airport pick-up and drop-off service in Yogyakarta.",
+  srv4Title: "Wedding Cars",
+  srv4Desc:
+    "Make your special day memorable with our clean, premium luxury cars.",
+  // Why Choose Us
+  whyTitle: "Why Choose RentCarPremium",
+  why1Title: "Premium Fleet",
+  why1Desc:
+    "Selective catalog of clean, well-maintained, and newest luxury car models.",
+  why2Title: "Best Price",
+  why2Desc:
+    "Competitive and transparent pricing. No hidden fees or surprise charges.",
+  why3Title: "24/7 Support",
+  why3Desc:
+    "Support reps and road assistance crew ready round-the-clock for your safety.",
+  // How It Works
+  procTitle: "How To Book Your Ride",
+  proc1Title: "Select Vehicle",
+  proc1Desc:
+    "Browse our premium fleet and choose the car matching your journey.",
+  proc2Title: "Choose Dates",
+  proc2Desc:
+    "Select your pickup & return dates and fill in reservation details.",
+  proc3Title: "Enjoy Journey",
+  proc3Desc:
+    "Collect your car or have it delivered, and hit the road comfortably.",
+  // Main Fleet Catalog Headers
+  catalogTitle: "Browse our extensive and modern fleet",
+  catalogSub:
+    "Choose from our carefully curated selection of premium vehicles for every journey.",
+  // Pricing Packages
+  packagesTitle: "Our Pricing Packages",
+  packagesSub: "Choose the pricing model that fits your travel duration best.",
+  // Safety Section
+  safetyTitle: "Safe & Sanitized Vehicles",
+  safetyDesc:
+    "Every car in our fleet undergoes strict 25-point inspection, complete sanitization, and deep cleaning after every single rental to guarantee your safety and peace of mind.",
+  // Loyalty Club
+  loyaltyTitle: "Join Our Premium Member Club",
+  loyaltyDesc:
+    "Earn points on every trip, get priority car upgrades, and unlock exclusive discounts up to 30%. Register now for free!",
+  // Call To Action (CTA)
+  ctaTitle: "Ready to hit the road?",
+  ctaDesc:
+    "Book your comfortable and luxury ride now. Rent a car in 3 simple steps.",
+  // Rental Requirements
+  termsTitle: "Rental Requirements",
+  term1: "Valid Identity Card (KTP/Passport) required for verification.",
+  term2:
+    "Valid Driver's License (SIM A / International License) for self-drive.",
+  term3: "Security deposit of Rp 500.000 returned on car drop-off.",
+  term4: "Fuel must be returned at the same level as pickup.",
+  // FAQ Section
+  faqTitle: "Frequently Asked Questions",
+  faqSub: "Everything you need to know before hitting the road with us.",
+  // Contact details
   phone: "+62 812 3456 7890",
   email: "hello@rentcarpremium.id",
   address: "Jl. Malioboro No. 88, Yogyakarta 55271",
   hours: "Mon–Sat: 08.00–20.00 WIB",
+  // Newsletter
+  newsTitle: "Newsletter Subscriptions",
+  newsDesc: "Get exclusive deals and weekly discount codes in your inbox.",
+  // Footer
+  footerDesc:
+    "Premium car rental experience crafted for those who value comfort, style, and reliability.",
+  copyright:
+    "© 2025 RentCarPremium. All rights reserved. Crafted with heart in Yogyakarta.",
+  // Stats Counters
   clients: 500,
   cars: 30,
   rating: 5,
@@ -261,6 +287,10 @@ if (!sharedFleet) {
 let landingData = JSON.parse(localStorage.getItem("cozycar_landing_data"));
 if (!landingData) {
   landingData = defaultLandingData;
+  localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
+} else {
+  // Merge missing keys to prevent script breaks if config expands
+  landingData = { ...defaultLandingData, ...landingData };
   localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
 }
 
@@ -289,31 +319,129 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ===== Apply LocalStorage Landing Page Data ===== */
 function applyLandingPageData() {
-  const taglineEl = document.getElementById("heroTagline");
-  if (taglineEl) taglineEl.textContent = landingData.heroTagline;
+  const setTxt = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  };
+  const setHtml = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = val;
+  };
 
-  // Contact Info
-  const emailEl = document.getElementById("contactEmail");
-  const footerEmailEl = document.getElementById("footerEmail");
-  if (emailEl) emailEl.textContent = landingData.email;
-  if (footerEmailEl) footerEmailEl.textContent = landingData.email;
+  // Section 4: Hero
+  setTxt("heroTagline", landingData.heroTagline);
+  setTxt("heroSub", landingData.heroSub);
 
-  const phoneEl = document.getElementById("contactPhone");
-  const footerPhoneEl = document.getElementById("footerPhone");
-  if (phoneEl) phoneEl.textContent = landingData.phone;
-  if (footerPhoneEl) footerPhoneEl.textContent = landingData.phone;
+  const heroBtn = document.getElementById("heroBtnText");
+  if (heroBtn) {
+    heroBtn.innerHTML = `${landingData.heroBtnText} <i class="fas fa-arrow-right"></i>`;
+  }
 
-  const addressEl = document.getElementById("contactAddress");
-  const footerAddressEl = document.getElementById("footerAddress");
-  if (addressEl) addressEl.textContent = landingData.address;
-  if (footerAddressEl) footerAddressEl.textContent = landingData.address;
+  // Section 5: Promo Tape
+  setTxt("promoText", landingData.promoText);
 
-  const hoursEl = document.getElementById("workingHours");
-  const footerHoursEl = document.getElementById("footerHours");
-  if (hoursEl) hoursEl.innerHTML = landingData.hours.replace(/\n/g, "<br/>");
-  if (footerHoursEl) footerHoursEl.textContent = landingData.hours;
+  // Section 9: About Us
+  setTxt("aboutTitle", landingData.aboutTitle);
+  setTxt("aboutText", landingData.aboutText);
 
-  // Stat targets
+  // Section 10: Services
+  setTxt("srv1Title", landingData.srv1Title);
+  setTxt("srv1Desc", landingData.srv1Desc);
+  setTxt("srv2Title", landingData.srv2Title);
+  setTxt("srv2Desc", landingData.srv2Desc);
+  setTxt("srv3Title", landingData.srv3Title);
+  setTxt("srv3Desc", landingData.srv3Desc);
+  setTxt("srv4Title", landingData.srv4Title);
+  setTxt("srv4Desc", landingData.srv4Desc);
+
+  // Section 11: Why Choose Us
+  const whyTitleEl = document.getElementById("whyTitle");
+  if (whyTitleEl) {
+    whyTitleEl.innerHTML = landingData.whyTitle.replace(
+      /RentCarPremium/g,
+      "<em>RentCarPremium</em>",
+    );
+  }
+  setTxt("why1Title", landingData.why1Title);
+  setTxt("why1Desc", landingData.why1Desc);
+  setTxt("why2Title", landingData.why2Title);
+  setTxt("why2Desc", landingData.why2Desc);
+  setTxt("why3Title", landingData.why3Title);
+  setTxt("why3Desc", landingData.why3Desc);
+
+  // Section 12: How It Works
+  const procTitleEl = document.getElementById("procTitle");
+  if (procTitleEl) {
+    procTitleEl.innerHTML = landingData.procTitle.replace(
+      /Book Your Ride/g,
+      "<em>Book Your Ride</em>",
+    );
+  }
+  setTxt("proc1Title", landingData.proc1Title);
+  setTxt("proc1Desc", landingData.proc1Desc);
+  setTxt("proc2Title", landingData.proc2Title);
+  setTxt("proc2Desc", landingData.proc2Desc);
+  setTxt("proc3Title", landingData.proc3Title);
+  setTxt("proc3Desc", landingData.proc3Desc);
+
+  // Section 14: Main Catalog
+  const catTitleEl = document.getElementById("catalogTitle");
+  if (catTitleEl) {
+    catTitleEl.innerHTML = landingData.catalogTitle.replace(
+      /and modern fleet/g,
+      "<em>and modern fleet</em>",
+    );
+  }
+  setTxt("catalogSub", landingData.catalogSub);
+
+  // Section 16: Packages
+  setTxt("packagesTitle", landingData.packagesTitle);
+  setTxt("packagesSub", landingData.packagesSub);
+
+  // Section 17: Safety
+  setTxt("safetyTitle", landingData.safetyTitle);
+  setTxt("safetyDesc", landingData.safetyDesc);
+
+  // Section 18: Loyalty
+  setTxt("loyaltyTitle", landingData.loyaltyTitle);
+  setTxt("loyaltyDesc", landingData.loyaltyDesc);
+
+  // Section 22: CTA
+  setTxt("ctaTitle", landingData.ctaTitle);
+  setTxt("ctaDesc", landingData.ctaDesc);
+
+  // Section 23: Requirements
+  setTxt("termsTitle", landingData.termsTitle);
+  setTxt("term1", landingData.term1);
+  setTxt("term2", landingData.term2);
+  setTxt("term3", landingData.term3);
+  setTxt("term4", landingData.term4);
+
+  // Section 26: FAQ
+  setTxt("faqTitle", landingData.faqTitle);
+  setTxt("faqSub", landingData.faqSub);
+
+  // Section 27: Contact Info
+  setTxt("contactEmail", landingData.email);
+  setTxt("footerEmail", landingData.email);
+  setTxt("contactPhone", landingData.phone);
+  setTxt("footerPhone", landingData.phone);
+  setTxt("contactAddress", landingData.address);
+  setTxt("footerAddress", landingData.address);
+  setTxt("workingHours", landingData.hours);
+  setTxt("footerHours", landingData.hours);
+
+  // Section 30: Newsletter
+  setTxt("newsTitle", landingData.newsTitle);
+  setTxt("newsDesc", landingData.newsDesc);
+
+  // Section 31: Footer Brand Description
+  setTxt("footerDesc", landingData.footerDesc);
+
+  // Section 32: Copyright
+  setTxt("footerCopyright", landingData.copyright);
+
+  // Section 7: Stats targets
   const statClients = document.getElementById("statClients");
   const statCars = document.getElementById("statCars");
   const statRating = document.getElementById("statRating");
@@ -495,7 +623,6 @@ function renderFleetHome() {
     card.setAttribute("data-aos", "fade-up");
     card.setAttribute("data-aos-delay", (index % 3) * 80);
 
-    // Badge styling based on availability
     let badgeHtml = `<span class="car-badge ${car.badgeClass}">${car.badge}</span>`;
     let rentButtonHtml = `<button class="btn-rent" onclick="window.location.href='#booking-section'; selectCarDropdown('${car.name}')">Rent Now</button>`;
 
@@ -720,7 +847,6 @@ function initBookingForm() {
       return;
     }
 
-    // Calculate days and pricing
     const days = Math.ceil(
       (new Date(ret) - new Date(pickup)) / (1000 * 60 * 60 * 24),
     );
@@ -730,7 +856,6 @@ function initBookingForm() {
       : 350000;
     const totalCost = days * dailyPrice;
 
-    // Load bookings and save
     let bookings = JSON.parse(localStorage.getItem("cozycar_bookings")) || [];
     const nextId = `#BK-00${bookings.length + 86}`;
 
