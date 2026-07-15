@@ -601,7 +601,12 @@
               </li>
               <li><i class="fas fa-check-circle"></i> 24/7 Road Assistance</li>
             </ul>
-            <a href="#booking-section" class="btn-outline">Select Package</a>
+            <a
+              href="#booking-section"
+              class="btn-outline"
+              onclick="selectPackage('Daily Rental')"
+              >Select Package</a
+            >
           </div>
           <div
             class="package-card featured"
@@ -624,7 +629,12 @@
               </li>
               <li><i class="fas fa-check-circle"></i> Free Airport Pick-up</li>
             </ul>
-            <a href="#booking-section" class="btn-primary">Select Package</a>
+            <a
+              href="#booking-section"
+              class="btn-primary"
+              onclick="selectPackage('Weekly Plan')"
+              >Select Package</a
+            >
           </div>
           <div class="package-card" data-aos="fade-up" data-aos-delay="200">
             <h3>Monthly Subscription</h3>
@@ -641,7 +651,12 @@
                 <i class="fas fa-check-circle"></i> Priority Dedicated Support
               </li>
             </ul>
-            <a href="#booking-section" class="btn-outline">Select Package</a>
+            <a
+              href="#booking-section"
+              class="btn-outline"
+              onclick="selectPackage('Monthly Subscription')"
+              >Select Package</a
+            >
           </div>
         </div>
       </div>
@@ -685,8 +700,9 @@
             exclusive discounts up to 30%. Register now for free!
           </p>
           <a
-            href="#booking-section"
+            href="#contact-form-section"
             class="btn-primary"
+            onclick="selectLoyalty()"
             style="background: #fff; color: #0f172a; border-color: #fff"
             >Sign Up Free</a
           >
@@ -798,12 +814,7 @@
             alt="Video Cover"
             class="video-placeholder"
           />
-          <div
-            class="play-btn"
-            onclick="
-              Swal.fire('Video Play', 'Playing promotion video...', 'info')
-            "
-          >
+          <div class="play-btn" onclick="playPromoVideo()">
             <i class="fas fa-play-circle"></i>
           </div>
         </div>

@@ -5,13 +5,15 @@
 .dashboard-body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--bg-color, #f4f7f6);
   color: var(--text-color, #333);
   display: flex;
   height: 100vh;
   overflow: hidden;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 :root {
@@ -49,8 +51,14 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== SIDEBAR ===== */
@@ -75,7 +83,7 @@
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-color);
@@ -154,7 +162,6 @@
 .logout-btn:hover {
   background: var(--hover-bg);
 }
-
 
 /* ===== MAIN CONTENT ===== */
 .main-content {
@@ -260,7 +267,6 @@
   color: var(--text-light, #94a3b8);
 }
 
-
 /* ===== DASHBOARD CONTAINER ===== */
 .dashboard-container {
   flex: 1;
@@ -284,7 +290,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
   transition: transform 0.3s;
 }
 .stat-card:hover {
@@ -300,10 +306,22 @@
   justify-content: center;
   font-size: 1.5rem;
 }
-.stat-icon.income { background: rgba(16, 185, 129, 0.1); color: var(--success-color); }
-.stat-icon.bookings { background: rgba(59, 130, 246, 0.1); color: var(--info-color); }
-.stat-icon.cars { background: rgba(245, 158, 11, 0.1); color: var(--warning-color); }
-.stat-icon.users { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+.stat-icon.income {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+.stat-icon.bookings {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--info-color);
+}
+.stat-icon.cars {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+.stat-icon.users {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+}
 
 .stat-details p {
   margin: 0;
@@ -327,10 +345,15 @@
   align-items: center;
   gap: 4px;
 }
-.trend.positive { color: var(--success-color); }
-.trend.negative { color: var(--danger-color); }
-.trend.neutral { color: var(--text-light); }
-
+.trend.positive {
+  color: var(--success-color);
+}
+.trend.negative {
+  color: var(--danger-color);
+}
+.trend.neutral {
+  color: var(--text-light);
+}
 
 /* Dashboard Grid (Charts & Lists) */
 .dashboard-grid {
@@ -345,7 +368,7 @@
   border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
   margin-bottom: 24px;
 }
 
@@ -567,7 +590,7 @@
   border: 1px solid var(--card-border);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
   transition: 0.3s;
 }
 .fleet-card-dashboard:hover {
@@ -593,9 +616,15 @@
   font-weight: 600;
   color: #fff;
 }
-.fleet-status-badge.available { background: var(--success-color); }
-.fleet-status-badge.rented { background: var(--info-color); }
-.fleet-status-badge.maintenance { background: var(--danger-color); }
+.fleet-status-badge.available {
+  background: var(--success-color);
+}
+.fleet-status-badge.rented {
+  background: var(--info-color);
+}
+.fleet-status-badge.maintenance {
+  background: var(--danger-color);
+}
 
 .fleet-info-dashboard {
   padding: 20px;
@@ -643,7 +672,6 @@
   font-size: 0.75rem;
   color: var(--text-light);
 }
-
 
 /* ===== SETTINGS VIEW ===== */
 .settings-grid {
@@ -723,4 +751,35 @@
   .admin-info {
     display: none;
   }
+}
+
+/* ---- Settings Fieldset Audit ---- */
+#landingPageForm fieldset {
+  border: 1px solid var(--sidebar-border) !important;
+  border-radius: 12px !important;
+  padding: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  background: var(--bg-color) !important;
+}
+#landingPageForm legend {
+  font-weight: 700 !important;
+  color: var(--primary-color) !important;
+  padding: 0 12px !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+#landingPageForm textarea {
+  background: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--sidebar-border) !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  font-family: inherit !important;
+  width: 100% !important;
+  transition: 0.3s !important;
+}
+#landingPageForm textarea:focus {
+  border-color: var(--primary-color) !important;
+  outline: none !important;
 }

@@ -100,7 +100,9 @@
               alt="Admin"
             />
             <div class="admin-info">
-              <span class="admin-name">Admin User</span>
+              <span class="admin-name" id="adminDisplayNameHeader"
+                >Admin User</span
+              >
               <span class="admin-role">Super Admin</span>
             </div>
           </div>
@@ -341,19 +343,29 @@
               <form class="settings-form" id="adminProfileForm">
                 <div class="form-group-sm">
                   <label>Display Name</label>
-                  <input type="text" value="Admin User" required />
+                  <input
+                    type="text"
+                    id="adminDisplayNameInput"
+                    value="Admin User"
+                    required
+                  />
                 </div>
                 <div class="form-group-sm">
                   <label>Email Address</label>
                   <input
                     type="email"
+                    id="adminEmailInput"
                     value="admin@rentcarpremium.id"
                     required
                   />
                 </div>
                 <div class="form-group-sm">
                   <label>New Password</label>
-                  <input type="password" placeholder="••••••••" />
+                  <input
+                    type="password"
+                    id="adminPasswordInput"
+                    placeholder="••••••••"
+                  />
                 </div>
                 <button type="submit" class="btn-primary-sm">
                   Save Profile
@@ -366,15 +378,25 @@
               <form class="settings-form" id="systemSettingsForm">
                 <div class="form-group-sm">
                   <label>Business Name</label>
-                  <input type="text" value="RentCarPremium" required />
+                  <input
+                    type="text"
+                    id="sysBusinessNameInput"
+                    value="RentCarPremium"
+                    required
+                  />
                 </div>
                 <div class="form-group-sm">
                   <label>Default Tax (%)</label>
-                  <input type="number" value="10" required />
+                  <input type="number" id="sysTaxInput" value="10" required />
                 </div>
                 <div class="form-group-sm">
                   <label>Insurance Fee (Rp / Day)</label>
-                  <input type="number" value="75000" required />
+                  <input
+                    type="number"
+                    id="sysInsuranceInput"
+                    value="75000"
+                    required
+                  />
                 </div>
                 <button type="submit" class="btn-primary-sm">
                   Save Config

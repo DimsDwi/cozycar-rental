@@ -284,6 +284,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveCustomers = () =>
     localStorage.setItem("cozycar_customers", JSON.stringify(state.customers));
 
+  /* ===== UPDATE ADMIN DISPLAY NAME HEADER ===== */
+  const updateAdminHeaderName = () => {
+    const adminProfile = JSON.parse(
+      localStorage.getItem("cozycar_admin_profile"),
+    ) || {
+      displayName: "Admin User",
+      email: "admin@rentcarpremium.id",
+    };
+    const headerName = document.getElementById("adminDisplayNameHeader");
+    if (headerName) headerName.textContent = adminProfile.displayName;
+  };
+
+  updateAdminHeaderName();
+
   /* ===== TAB VIEW SWITCHING ===== */
   const sidebarLinks = document.querySelectorAll(".sidebar-link");
   const views = document.querySelectorAll(".dashboard-view");
@@ -644,6 +658,63 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 4. Customers Database Rendering
+  window.viewCustomerFile = (id) => {
+    const cust = state.customers.find((c) => c.id === id);
+    if (!cust) return;
+
+    // Calculate customer specific rentals
+    const custBookings = state.bookings.filter(
+      (b) => b.customer.toLowerCase() === cust.name.toLowerCase(),
+    );
+    const bookingsListHtml =
+      custBookings.length > 0
+        ? custBookings
+            .map(
+              (b) => `
+          <div style="border-bottom:1px solid var(--border);padding:6px 0;display:flex;justify-content:space-between;font-size:0.85rem;">
+            <span><strong>${b.id}</strong> - ${b.car}</span>
+            <span class="status-badge ${b.status.toLowerCase()}" style="float:none;padding:1px 6px;font-size:0.75rem;">${b.status}</span>
+          </div>
+        `,
+            )
+            .join("")
+        : '<p style="font-size:0.85rem;color:var(--text-light)">No rental records found in session history.</p>';
+
+    if (window.Swal) {
+      Swal.fire({
+        title: `Customer Profile`,
+        html: `
+          <div style="text-align: left; line-height: 1.8; font-family: inherit;">
+            <div style="display:flex;align-items:center;gap:15px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:15px;">
+              <div style="width:50px;height:50px;border-radius:50%;background:rgba(212,175,55,0.1);color:#d4af37;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;">
+                ${cust.name.charAt(0)}
+              </div>
+              <div>
+                <h4 style="margin:0;font-size:1.1rem;color:var(--text)">${cust.name}</h4>
+                <p style="margin:0;font-size:0.8rem;color:var(--text-light)">ID: ${cust.id}</p>
+              </div>
+            </div>
+            <p><strong>Email:</strong> ${cust.email}</p>
+            <p><strong>Phone:</strong> ${cust.phone}</p>
+            <p><strong>Status:</strong> <span class="status-badge ${cust.status === "Active" ? "completed" : "cancelled"}" style="float:none;display:inline-block;padding:2px 8px;font-size:0.8rem;">${cust.status}</span></p>
+            <div style="margin-top:20px;">
+              <h5 style="margin-bottom:8px;font-size:0.9rem;border-bottom:1px solid var(--border);padding-bottom:5px;">Recent Bookings</h5>
+              <div style="max-height:150px;overflow-y:auto;">
+                ${bookingsListHtml}
+              </div>
+            </div>
+          </div>
+        `,
+        confirmButtonColor: "#d4af37",
+        confirmButtonText: "Close File",
+      });
+    } else {
+      alert(
+        `Customer: ${cust.name}\nEmail: ${cust.email}\nPhone: ${cust.phone}\nBookings: ${cust.bookings}`,
+      );
+    }
+  };
+
   function renderCustomersTable() {
     const tbody = document.getElementById("customersTable");
     if (!tbody) return;
@@ -659,7 +730,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${c.bookings} Bookings</td>
         <td><span class="status-badge ${c.status === "Active" ? "completed" : "cancelled"}">${c.status}</span></td>
         <td>
-          <button class="btn-outline-sm" onclick="alert('Viewing customer file...')"><i class="fas fa-eye"></i> View</button>
+          <button class="btn-outline-sm" onclick="viewCustomerFile('${c.id}')"><i class="fas fa-eye"></i> View</button>
         </td>
       `;
       tbody.appendChild(tr);
@@ -837,11 +908,34 @@ document.addEventListener("DOMContentLoaded", () => {
   function populateSettingsForms() {
     const landing =
       JSON.parse(localStorage.getItem("cozycar_landing_data")) || {};
+    const adminProfile = JSON.parse(
+      localStorage.getItem("cozycar_admin_profile"),
+    ) || {
+      displayName: "Admin User",
+      email: "admin@rentcarpremium.id",
+    };
+    const sysSettings = JSON.parse(
+      localStorage.getItem("cozycar_system_settings"),
+    ) || {
+      businessName: "RentCarPremium",
+      tax: 10,
+      insurance: 75000,
+    };
 
     const setVal = (id, val) => {
       const el = document.getElementById(id);
       if (el) el.value = val || "";
     };
+
+    // Admin profile inputs
+    setVal("adminDisplayNameInput", adminProfile.displayName);
+    setVal("adminEmailInput", adminProfile.email);
+    setVal("adminPasswordInput", "");
+
+    // System settings inputs
+    setVal("sysBusinessNameInput", sysSettings.businessName);
+    setVal("sysTaxInput", sysSettings.tax);
+    setVal("sysInsuranceInput", sysSettings.insurance);
 
     // Hero & Promo
     setVal("setHeroTitle", landing.heroTitle);
@@ -1015,8 +1109,27 @@ document.addEventListener("DOMContentLoaded", () => {
   if (adminProfileForm) {
     adminProfileForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      const displayName = document
+        .getElementById("adminDisplayNameInput")
+        .value.trim();
+      const email = document.getElementById("adminEmailInput").value.trim();
+      const password = document
+        .getElementById("adminPasswordInput")
+        .value.trim();
+
+      const profile = { displayName, email };
+      if (password) profile.password = password; // Only save password if entered
+
+      localStorage.setItem("cozycar_admin_profile", JSON.stringify(profile));
+      updateAdminHeaderName();
+
       if (window.Swal) {
-        Swal.fire("Saved!", "Admin profile settings updated.", "success");
+        Swal.fire({
+          icon: "success",
+          title: "Profile Updated!",
+          text: "Admin profile information has been saved.",
+          confirmButtonColor: "#d4af37",
+        });
       } else {
         alert("Profile saved!");
       }
@@ -1027,8 +1140,23 @@ document.addEventListener("DOMContentLoaded", () => {
   if (systemSettingsForm) {
     systemSettingsForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      const businessName = document
+        .getElementById("sysBusinessNameInput")
+        .value.trim();
+      const tax = parseInt(document.getElementById("sysTaxInput").value) || 10;
+      const insurance =
+        parseInt(document.getElementById("sysInsuranceInput").value) || 75000;
+
+      const config = { businessName, tax, insurance };
+      localStorage.setItem("cozycar_system_settings", JSON.stringify(config));
+
       if (window.Swal) {
-        Swal.fire("Saved!", "System configurations updated.", "success");
+        Swal.fire({
+          icon: "success",
+          title: "Config Saved!",
+          text: "System settings configurations have been updated.",
+          confirmButtonColor: "#d4af37",
+        });
       } else {
         alert("Settings saved!");
       }

@@ -315,6 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackToTop();
   initDarkMode();
   initSmoothScroll();
+  initEmptyLinks();
 });
 
 /* ===== Apply LocalStorage Landing Page Data ===== */
@@ -322,10 +323,6 @@ function applyLandingPageData() {
   const setTxt = (id, val) => {
     const el = document.getElementById(id);
     if (el) el.textContent = val;
-  };
-  const setHtml = (id, val) => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = val;
   };
 
   // Section 4: Hero
@@ -770,6 +767,16 @@ window.openModal = (idx) => {
   `;
 
   document.getElementById("modalPrice").textContent = car.price;
+
+  // Update Book This Car trigger inside modal dynamically
+  const modalBookBtn = document.querySelector("#carModal .btn-primary");
+  if (modalBookBtn) {
+    modalBookBtn.setAttribute(
+      "onclick",
+      `closeModal(); selectCarDropdown('${car.name}');`,
+    );
+  }
+
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
 };
@@ -890,6 +897,43 @@ function initBookingForm() {
   });
 }
 
+/* ===== Dynamic Page Actions Triggers ===== */
+window.selectPackage = (packageName) => {
+  const messageInput = document.getElementById("bMessage");
+  if (messageInput) {
+    messageInput.value = `Interested in ordering the: ${packageName}.`;
+  }
+};
+
+window.selectLoyalty = () => {
+  const messageInput = document.getElementById("cMessage");
+  if (messageInput) {
+    messageInput.value =
+      "I would like to register for the Loyalty Member Club. Please send details to my email.";
+  }
+};
+
+window.playPromoVideo = () => {
+  if (window.Swal) {
+    Swal.fire({
+      title: "RentCarPremium – Promotional Video",
+      html: `
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+          <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+            src="https://www.youtube.com/embed/1Z51h-Lek8w?autoplay=1" 
+            title="Promo Video" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      `,
+      showConfirmButton: false,
+      width: "700px",
+      background: "var(--bg2)",
+    });
+  }
+};
+
 /* ===== Contact Form ===== */
 function initContactForm() {
   const form = document.getElementById("contactForm");
@@ -1003,6 +1047,23 @@ function initSmoothScroll() {
         window.scrollTo({
           top: target.getBoundingClientRect().top + window.scrollY - offset,
           behavior: "smooth",
+        });
+      }
+    });
+  });
+}
+
+/* ===== Prevent jumpy links for empty hashes ===== */
+function initEmptyLinks() {
+  document.querySelectorAll('a[href="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (window.Swal) {
+        Swal.fire({
+          icon: "info",
+          title: "Social Media Connection",
+          text: "This channel is currently being set up. Follow us on Instagram for updates!",
+          confirmButtonColor: "#d4af37",
         });
       }
     });
