@@ -1,5 +1,5 @@
 /* ============================================================
-   RentCarPremium – script.js
+   CozyCar Rental – script.js
    ============================================================ */
 
 /* ===== Fallback Default Car Data ===== */
@@ -208,7 +208,7 @@ const defaultLandingData = {
   srv4Desc:
     "Make your special day memorable with our clean, premium luxury cars.",
   // Why Choose Us
-  whyTitle: "Why Choose RentCarPremium",
+  whyTitle: "Why Choose CozyCar Rental",
   why1Title: "Premium Fleet",
   why1Desc:
     "Selective catalog of clean, well-maintained, and newest luxury car models.",
@@ -260,7 +260,7 @@ const defaultLandingData = {
   faqSub: "Semua hal yang perlu Anda ketahui sebelum menyewa mobil kami.",
   // Contact details
   phone: "+62 812 3456 7890",
-  email: "hello@rentcarpremium.id",
+  email: "hello@cozycar-rental.my.id",
   address: "Jl. Malioboro No. 88, Yogyakarta 55271",
   hours: "Mon–Sat: 08.00–20.00 WIB",
   // Newsletter
@@ -270,7 +270,7 @@ const defaultLandingData = {
   footerDesc:
     "Premium car rental experience crafted for those who value comfort, style, and reliability.",
   copyright:
-    "© 2025 RentCarPremium. All rights reserved. Crafted with heart in Yogyakarta.",
+    "© 2025 CozyCar Rental. All rights reserved. Crafted with heart in Yogyakarta.",
   // Stats Counters
   clients: 500,
   cars: 30,
@@ -299,6 +299,14 @@ if (!landingData) {
   ) {
     landingData.faqSub =
       "Semua hal yang perlu Anda ketahui sebelum menyewa mobil kami.";
+  }
+  // Run replacement migration for brand name update
+  for (const key in landingData) {
+    if (typeof landingData[key] === "string") {
+      landingData[key] = landingData[key]
+        .replace(/RentCarPremium/g, "CozyCar Rental")
+        .replace(/rentcarpremium\.id/g, "cozycar-rental.my.id");
+    }
   }
   // Merge missing keys to prevent script breaks if config expands
   landingData = { ...defaultLandingData, ...landingData };
@@ -366,8 +374,8 @@ function applyLandingPageData() {
   const whyTitleEl = document.getElementById("whyTitle");
   if (whyTitleEl) {
     whyTitleEl.innerHTML = landingData.whyTitle.replace(
-      /RentCarPremium/g,
-      "<em>RentCarPremium</em>",
+      /CozyCar Rental/g,
+      "<em>CozyCar Rental</em>",
     );
   }
   setTxt("why1Title", landingData.why1Title);
@@ -927,7 +935,7 @@ window.selectLoyalty = () => {
 window.playPromoVideo = () => {
   if (window.Swal) {
     Swal.fire({
-      title: "RentCarPremium – Promotional Video",
+      title: "CozyCar Rental – Promotional Video",
       html: `
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
           <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" 

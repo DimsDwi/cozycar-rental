@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.getItem("cozycar_admin_profile"),
     ) || {
       displayName: "Admin User",
-      email: "admin@rentcarpremium.id",
+      email: "admin@cozycar-rental.my.id",
     };
     const headerName = document.getElementById("adminDisplayNameHeader");
     if (headerName) headerName.textContent = adminProfile.displayName;
@@ -912,12 +912,12 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.getItem("cozycar_admin_profile"),
     ) || {
       displayName: "Admin User",
-      email: "admin@rentcarpremium.id",
+      email: "admin@cozycar-rental.my.id",
     };
     const sysSettings = JSON.parse(
       localStorage.getItem("cozycar_system_settings"),
     ) || {
-      businessName: "RentCarPremium",
+      businessName: "CozyCar Rental",
       tax: 10,
       insurance: 75000,
     };
