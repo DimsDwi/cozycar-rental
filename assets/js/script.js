@@ -256,8 +256,8 @@ const defaultLandingData = {
   term3: "Security deposit of Rp 500.000 returned on car drop-off.",
   term4: "Fuel must be returned at the same level as pickup.",
   // FAQ Section
-  faqTitle: "Frequently Asked Questions",
-  faqSub: "Everything you need to know before hitting the road with us.",
+  faqTitle: "Pertanyaan yang Sering Diajukan",
+  faqSub: "Semua hal yang perlu Anda ketahui sebelum menyewa mobil kami.",
   // Contact details
   phone: "+62 812 3456 7890",
   email: "hello@rentcarpremium.id",
@@ -289,6 +289,17 @@ if (!landingData) {
   landingData = defaultLandingData;
   localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
 } else {
+  // Translate if old English titles are found in localstorage
+  if (landingData.faqTitle === "Frequently Asked Questions") {
+    landingData.faqTitle = "Pertanyaan yang Sering Diajukan";
+  }
+  if (
+    landingData.faqSub ===
+    "Everything you need to know before hitting the road with us."
+  ) {
+    landingData.faqSub =
+      "Semua hal yang perlu Anda ketahui sebelum menyewa mobil kami.";
+  }
   // Merge missing keys to prevent script breaks if config expands
   landingData = { ...defaultLandingData, ...landingData };
   localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
