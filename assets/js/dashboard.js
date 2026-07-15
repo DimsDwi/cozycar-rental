@@ -318,6 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (targetId === "bookings") renderBookingsTable();
     if (targetId === "fleet") renderFleetGrid();
     if (targetId === "customers") renderCustomersTable();
+    if (targetId === "settings") populateSettingsForms();
     if (targetId === "overview") updateOverviewMetrics();
   }
 
@@ -506,7 +507,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (booking) {
       booking.status = newStatus;
 
-      // Auto register customer if not exists when booking completes
       if (newStatus === "Completed") {
         const custExists = state.customers.some(
           (c) => c.name === booking.customer,
@@ -715,7 +715,6 @@ document.addEventListener("DOMContentLoaded", () => {
           if (result.isConfirmed) {
             const nextId = `#BK-00${state.bookings.length + 86}`;
 
-            // Calculate pricing
             const days = Math.ceil(
               (new Date(result.value.return) - new Date(result.value.pickup)) /
                 (1000 * 60 * 60 * 24),
@@ -790,9 +789,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             if (!img)
               img =
-                "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&q=80"; // fallback
+                "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&q=80";
 
-            // Format badge text
             const badgeMap = {
               economy: "Economy",
               suv: "SUV",
@@ -835,7 +833,78 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ===== SETTINGS FORMS ===== */
+  /* ===== SETTINGS FORMS POPULATING & SUBMISSION ===== */
+  function populateSettingsForms() {
+    const landing = JSON.parse(
+      localStorage.getItem("cozycar_landing_data"),
+    ) || {
+      heroTitle: "Search and book your cozy car here",
+      heroTagline: "Premium · Reliable · Affordable",
+      phone: "+62 812 3456 7890",
+      email: "hello@rentcarpremium.id",
+      address: "Jl. Malioboro No. 88, Yogyakarta 55271",
+      hours: "Mon–Sat: 08.00–20.00 WIB",
+      clients: 500,
+      cars: 30,
+      rating: 5,
+    };
+
+    const titleInput = document.getElementById("setHeroTitle");
+    const taglineInput = document.getElementById("setHeroTagline");
+    const phoneInput = document.getElementById("setPhone");
+    const emailInput = document.getElementById("setEmail");
+    const addressInput = document.getElementById("setAddress");
+    const hoursInput = document.getElementById("setHours");
+    const clientsInput = document.getElementById("setClients");
+    const carsInput = document.getElementById("setCars");
+    const ratingInput = document.getElementById("setRating");
+
+    if (titleInput) titleInput.value = landing.heroTitle;
+    if (taglineInput) taglineInput.value = landing.heroTagline;
+    if (phoneInput) phoneInput.value = landing.phone;
+    if (emailInput) emailInput.value = landing.email;
+    if (addressInput) addressInput.value = landing.address;
+    if (hoursInput) hoursInput.value = landing.hours;
+    if (clientsInput) clientsInput.value = landing.clients;
+    if (carsInput) carsInput.value = landing.cars;
+    if (ratingInput) ratingInput.value = landing.rating;
+  }
+
+  // Bind settings forms submissions
+  const landingPageForm = document.getElementById("landingPageForm");
+  if (landingPageForm) {
+    landingPageForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const updatedLanding = {
+        heroTitle: document.getElementById("setHeroTitle").value.trim(),
+        heroTagline: document.getElementById("setHeroTagline").value.trim(),
+        phone: document.getElementById("setPhone").value.trim(),
+        email: document.getElementById("setEmail").value.trim(),
+        address: document.getElementById("setAddress").value.trim(),
+        hours: document.getElementById("setHours").value.trim(),
+        clients: parseInt(document.getElementById("setClients").value) || 500,
+        cars: parseInt(document.getElementById("setCars").value) || 30,
+        rating: parseFloat(document.getElementById("setRating").value) || 5,
+      };
+
+      localStorage.setItem(
+        "cozycar_landing_data",
+        JSON.stringify(updatedLanding),
+      );
+
+      if (window.Swal) {
+        Swal.fire({
+          icon: "success",
+          title: "Saved!",
+          text: "Landing page content updated successfully. Refresh the homepage to see changes.",
+          confirmButtonColor: "#d4af37",
+        });
+      } else {
+        alert("Landing page content updated!");
+      }
+    });
+  }
+
   const adminProfileForm = document.getElementById("adminProfileForm");
   if (adminProfileForm) {
     adminProfileForm.addEventListener("submit", (e) => {

@@ -238,6 +238,19 @@ const defaultFleet = [
   },
 ];
 
+// Default Landing Page Text Data
+const defaultLandingData = {
+  heroTitle: "Search and book your cozy car here",
+  heroTagline: "Premium · Reliable · Affordable",
+  phone: "+62 812 3456 7890",
+  email: "hello@rentcarpremium.id",
+  address: "Jl. Malioboro No. 88, Yogyakarta 55271",
+  hours: "Mon–Sat: 08.00–20.00 WIB",
+  clients: 500,
+  cars: 30,
+  rating: 5,
+};
+
 // Load shared data
 let sharedFleet = JSON.parse(localStorage.getItem("cozycar_fleet"));
 if (!sharedFleet) {
@@ -245,9 +258,16 @@ if (!sharedFleet) {
   localStorage.setItem("cozycar_fleet", JSON.stringify(sharedFleet));
 }
 
+let landingData = JSON.parse(localStorage.getItem("cozycar_landing_data"));
+if (!landingData) {
+  landingData = defaultLandingData;
+  localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
+}
+
 /* ===== DOM Ready ===== */
 document.addEventListener("DOMContentLoaded", () => {
   initLoader();
+  applyLandingPageData();
   initNavbar();
   initHeroTyping();
   initCounters();
@@ -266,6 +286,42 @@ document.addEventListener("DOMContentLoaded", () => {
   initDarkMode();
   initSmoothScroll();
 });
+
+/* ===== Apply LocalStorage Landing Page Data ===== */
+function applyLandingPageData() {
+  const taglineEl = document.getElementById("heroTagline");
+  if (taglineEl) taglineEl.textContent = landingData.heroTagline;
+
+  // Contact Info
+  const emailEl = document.getElementById("contactEmail");
+  const footerEmailEl = document.getElementById("footerEmail");
+  if (emailEl) emailEl.textContent = landingData.email;
+  if (footerEmailEl) footerEmailEl.textContent = landingData.email;
+
+  const phoneEl = document.getElementById("contactPhone");
+  const footerPhoneEl = document.getElementById("footerPhone");
+  if (phoneEl) phoneEl.textContent = landingData.phone;
+  if (footerPhoneEl) footerPhoneEl.textContent = landingData.phone;
+
+  const addressEl = document.getElementById("contactAddress");
+  const footerAddressEl = document.getElementById("footerAddress");
+  if (addressEl) addressEl.textContent = landingData.address;
+  if (footerAddressEl) footerAddressEl.textContent = landingData.address;
+
+  const hoursEl = document.getElementById("workingHours");
+  const footerHoursEl = document.getElementById("footerHours");
+  if (hoursEl) hoursEl.innerHTML = landingData.hours.replace(/\n/g, "<br/>");
+  if (footerHoursEl) footerHoursEl.textContent = landingData.hours;
+
+  // Stat targets
+  const statClients = document.getElementById("statClients");
+  const statCars = document.getElementById("statCars");
+  const statRating = document.getElementById("statRating");
+
+  if (statClients) statClients.setAttribute("data-target", landingData.clients);
+  if (statCars) statCars.setAttribute("data-target", landingData.cars);
+  if (statRating) statRating.setAttribute("data-target", landingData.rating);
+}
 
 /* ===== Loading Screen ===== */
 function initLoader() {
@@ -327,7 +383,7 @@ function initNavbar() {
 function initHeroTyping() {
   const el = document.getElementById("heroTitle");
   if (!el) return;
-  const text = "Search and book your cozy car here";
+  const text = landingData.heroTitle;
   let i = 0;
   let html = "";
   const cursor = '<span class="cursor"></span>';
@@ -396,7 +452,7 @@ function initAOS() {
 
 /* ===== Swiper Testimonials ===== */
 function initSwiper() {
-  if (window.Swiper) {
+  if (window.Swiper && document.querySelector(".testimonials-swiper")) {
     new Swiper(".testimonials-swiper", {
       slidesPerView: 1,
       spaceBetween: 24,
@@ -441,7 +497,7 @@ function renderFleetHome() {
 
     // Badge styling based on availability
     let badgeHtml = `<span class="car-badge ${car.badgeClass}">${car.badge}</span>`;
-    let rentButtonHtml = `<button class="btn-rent" onclick="window.location.href='#booking'; selectCarDropdown('${car.name}')">Rent Now</button>`;
+    let rentButtonHtml = `<button class="btn-rent" onclick="window.location.href='#booking-section'; selectCarDropdown('${car.name}')">Rent Now</button>`;
 
     if (car.status === "rented") {
       badgeHtml = `<span class="car-badge" style="background:#3b82f6">Rented</span>`;

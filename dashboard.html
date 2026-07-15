@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
@@ -109,7 +109,6 @@
 
       <!-- Dashboard Container -->
       <div class="dashboard-container">
-        
         <!-- =========================================
              1. OVERVIEW VIEW (DASHBOARD)
              ========================================= -->
@@ -221,7 +220,9 @@
           <div class="recent-bookings dashboard-card">
             <div class="card-header">
               <h3>Recent Bookings</h3>
-              <button class="btn-outline-sm" id="viewAllBookingsBtn">View All</button>
+              <button class="btn-outline-sm" id="viewAllBookingsBtn">
+                View All
+              </button>
             </div>
             <div class="table-responsive">
               <table class="dashboard-table">
@@ -344,13 +345,19 @@
                 </div>
                 <div class="form-group-sm">
                   <label>Email Address</label>
-                  <input type="email" value="admin@rentcarpremium.id" required />
+                  <input
+                    type="email"
+                    value="admin@rentcarpremium.id"
+                    required
+                  />
                 </div>
                 <div class="form-group-sm">
                   <label>New Password</label>
                   <input type="password" placeholder="••••••••" />
                 </div>
-                <button type="submit" class="btn-primary-sm">Save Profile</button>
+                <button type="submit" class="btn-primary-sm">
+                  Save Profile
+                </button>
               </form>
             </div>
 
@@ -369,12 +376,58 @@
                   <label>Insurance Fee (Rp / Day)</label>
                   <input type="number" value="75000" required />
                 </div>
-                <button type="submit" class="btn-primary-sm">Save Config</button>
+                <button type="submit" class="btn-primary-sm">
+                  Save Config
+                </button>
+              </form>
+            </div>
+
+            <div class="dashboard-card settings-card">
+              <h3>Landing Page Content</h3>
+              <form class="settings-form" id="landingPageForm">
+                <div class="form-group-sm">
+                  <label>Hero Title</label>
+                  <input type="text" id="setHeroTitle" required />
+                </div>
+                <div class="form-group-sm">
+                  <label>Hero Tagline</label>
+                  <input type="text" id="setHeroTagline" required />
+                </div>
+                <div class="form-group-sm">
+                  <label>Contact Phone</label>
+                  <input type="text" id="setPhone" required />
+                </div>
+                <div class="form-group-sm">
+                  <label>Contact Email</label>
+                  <input type="email" id="setEmail" required />
+                </div>
+                <div class="form-group-sm">
+                  <label>Contact Address</label>
+                  <input type="text" id="setAddress" required />
+                </div>
+                <div class="form-group-sm">
+                  <label>Working Hours</label>
+                  <input type="text" id="setHours" required />
+                </div>
+                <div class="form-group-sm">
+                  <label>Clients Counter</label>
+                  <input type="number" id="setClients" required />
+                </div>
+                <div class="form-group-sm">
+                  <label>Fleet Cars Counter</label>
+                  <input type="number" id="setCars" required />
+                </div>
+                <div class="form-group-sm">
+                  <label>Rating Counter</label>
+                  <input type="number" step="0.1" id="setRating" required />
+                </div>
+                <button type="submit" class="btn-primary-sm">
+                  Update Landing Page
+                </button>
               </form>
             </div>
           </div>
         </div>
-
       </div>
     </main>
 
