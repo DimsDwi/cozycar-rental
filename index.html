@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RentCarPremium – Premium car rental experience with modern vehicles, affordable pricing, and easy booking system."
+    />
+    <meta
+      name="keywords"
+      content="car rental, premium car, rent car, Toyota, Honda, luxury car"
+    />
+    <title>RentCarPremium – Luxury Car Rental</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+
+    <!-- SwiperJS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- SweetAlert2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">RentCar<span>Premium</span></div>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+        <p class="loader-text">Crafting your experience…</p>
+      </div>
+    </div>
+
+    <!-- ===== SCROLL PROGRESS BAR ===== -->
+    <div id="scroll-progress"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">RentCar<span>Premium</span></a>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#fleet" class="nav-link">Fleet</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button
+            class="dark-toggle"
+            id="darkToggle"
+            aria-label="Toggle dark mode"
+          >
+            <i class="fas fa-moon" id="darkIcon"></i>
+          </button>
+          <a href="#booking" class="btn-book">Book Now</a>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-tagline" data-aos="fade-down" data-aos-delay="200">
+          Premium · Reliable · Affordable
+        </p>
+        <h1 class="hero-title" id="heroTitle"></h1>
+        <p class="hero-sub" data-aos="fade-up" data-aos-delay="600">
+          Premium car rental experience with modern vehicles, affordable
+          pricing, and easy booking system.
+        </p>
+        <div class="hero-btns" data-aos="fade-up" data-aos-delay="800">
+          <a href="#fleet" class="btn-primary"
+            >Explore Fleet <i class="fas fa-arrow-right"></i
+          ></a>
+          <a href="#contact" class="btn-outline">Contact Us</a>
+        </div>
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="1000">
+          <div class="stat">
+            <span class="stat-num" data-target="500">0</span><span>+</span>
+            <p>Happy Clients</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="9">0</span><span>+</span>
+            <p>Fleet Cars</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="5">0</span><span>★</span>
+            <p>Avg Rating</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BOOKING FORM ===== -->
+      <div
+        class="booking-card"
+        id="booking"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
+        <h3 class="booking-title">
+          <i class="fas fa-calendar-check"></i> Reserve Your Car
+        </h3>
+        <form id="bookingForm" class="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-user"></i> Full Name</label>
+              <input
+                type="text"
+                id="bName"
+                placeholder="Your full name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-envelope"></i> Email</label>
+              <input
+                type="email"
+                id="bEmail"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-phone"></i> Phone Number</label>
+              <input
+                type="tel"
+                id="bPhone"
+                placeholder="+62 xxx xxxx xxxx"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label
+                ><i class="fas fa-map-marker-alt"></i> Pickup Location</label
+              >
+              <input
+                type="text"
+                id="bLocation"
+                placeholder="City or airport"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-calendar"></i> Pickup Date</label>
+              <input type="date" id="bPickup" required />
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-calendar-alt"></i> Return Date</label>
+              <input type="date" id="bReturn" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-car"></i> Car Type</label>
+              <select id="bCarType" required>
+                <option value="">Select car type</option>
+                <option>Economy</option>
+                <option>SUV / MPV</option>
+                <option>Premium</option>
+                <option>Van / Hiace</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-comment"></i> Message</label>
+              <input
+                type="text"
+                id="bMessage"
+                placeholder="Special requests..."
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn-book-form">
+            Book Now <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== FLEET SECTION ===== -->
+    <section id="fleet" class="fleet-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <p class="section-pre">Our Collection</p>
+          <h2 class="section-title">
+            Browse our extensive<br /><em>and modern fleet</em>
+          </h2>
+          <p class="section-sub">
+            Choose from our carefully curated selection of premium vehicles for
+            every journey.
+          </p>
+        </div>
+
+        <!-- Filter + Search -->
+        <div class="fleet-controls" data-aos="fade-up" data-aos-delay="100">
+          <div class="fleet-filters">
+            <button class="filter-btn active" data-filter="all">
+              All Cars
+            </button>
+            <button class="filter-btn" data-filter="economy">Economy</button>
+            <button class="filter-btn" data-filter="suv">SUV / MPV</button>
+            <button class="filter-btn" data-filter="premium">Premium</button>
+            <button class="filter-btn" data-filter="van">Van</button>
+          </div>
+          <div class="fleet-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="carSearch" placeholder="Search cars…" />
+          </div>
+        </div>
+
+        <!-- Car Grid -->
+        <div class="cars-grid" id="carsGrid">
+          <!-- Card 1 -->
+          <div
+            class="car-card"
+            data-category="economy"
+            data-name="toyota avanza"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.oUgGefpCbE5vS0LjZGcq3wHaEK?w=265&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="Toyota Avanza"
+                loading="lazy"
+              />
+              <span class="car-badge economy">Economy</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Toyota Avanza</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> Manual</span>
+                <span><i class="fas fa-users"></i> 7 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Petrol</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+                <span>4.5</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 350K</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(0)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="car-card"
+            data-category="suv"
+            data-name="pajero sport"
+            data-aos="fade-up"
+            data-aos-delay="80"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.t22fXZm8ajaMk3SZnd7yOwHaEh?w=259&h=150&c=6&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="Pajero Sport"
+                loading="lazy"
+              />
+              <span class="car-badge suv">SUV</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Pajero Sport</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> Automatic</span>
+                <span><i class="fas fa-users"></i> 7 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Diesel</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>5.0</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 850K</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(1)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="car-card"
+            data-category="economy"
+            data-name="toyota raize"
+            data-aos="fade-up"
+            data-aos-delay="160"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.m85mOLIDQ7piIHSHy_spLgHaEo?w=328&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3 "
+                alt="Toyota Raize"
+                loading="lazy"
+              />
+              <span class="car-badge economy">Economy</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Toyota Raize</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> CVT</span>
+                <span><i class="fas fa-users"></i> 5 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Petrol</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>4.8</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 450K</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(2)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="car-card"
+            data-category="economy"
+            data-name="honda brio"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.tw2qW6LhWyCzQKC5aZrY2QHaE8?w=253&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="Honda Brio"
+                loading="lazy"
+              />
+              <span class="car-badge economy">Economy</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Honda Brio</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> CVT</span>
+                <span><i class="fas fa-users"></i> 5 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Petrol</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+                <span>4.6</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 300K</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(3)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="car-card"
+            data-category="economy"
+            data-name="toyota yaris"
+            data-aos="fade-up"
+            data-aos-delay="80"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.pTMqt5w8bcjOJmfh1vdY1gHaE8?w=244&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="Toyota Yaris"
+                loading="lazy"
+              />
+              <span class="car-badge economy">Economy</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Toyota Yaris</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> CVT</span>
+                <span><i class="fas fa-users"></i> 5 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Petrol</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+                <span>4.5</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 380K</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(4)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="car-card"
+            data-category="economy"
+            data-name="toyota etios"
+            data-aos="fade-up"
+            data-aos-delay="160"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.eQrUA0qv_53PCn4i0zDPHgHaE8?w=278&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="Toyota Etios"
+                loading="lazy"
+              />
+              <span class="car-badge economy">Economy</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Toyota Etios</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> Manual</span>
+                <span><i class="fas fa-users"></i> 5 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Petrol</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+                <span>4.0</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 280K</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(5)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div
+            class="car-card"
+            data-category="premium"
+            data-name="toyota alphard"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.Qn-1zHXewPxutdXA5yAZLQHaE8?w=240&h=150&c=6&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="Toyota Alphard"
+                loading="lazy"
+              />
+              <span class="car-badge premium">Premium</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Toyota Alphard</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> Automatic</span>
+                <span><i class="fas fa-users"></i> 7 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Hybrid</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>5.0</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 1.5M</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(6)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div
+            class="car-card"
+            data-category="van"
+            data-name="toyota hiace"
+            data-aos="fade-up"
+            data-aos-delay="80"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.B_0JEHa3Nm3IFk8mjK9M3AHaE8?w=270&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="Toyota Hiace"
+                loading="lazy"
+              />
+              <span class="car-badge van">Van</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Toyota Hiace</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> Manual</span>
+                <span><i class="fas fa-users"></i> 15 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Diesel</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+                <span>4.7</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 900K</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(7)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div
+            class="car-card"
+            data-category="suv"
+            data-name="skoda kodiaq"
+            data-aos="fade-up"
+            data-aos-delay="160"
+          >
+            <div class="car-img-wrap">
+              <img
+                src="https://th.bing.com/th/id/OIP.9dppdRpbWoQh_RIjaWYaTgHaEK?w=307&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                alt="Skoda Kodiaq"
+                loading="lazy"
+              />
+              <span class="car-badge suv">SUV</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">Skoda Kodiaq</h3>
+              <div class="car-specs">
+                <span><i class="fas fa-cog"></i> DSG</span>
+                <span><i class="fas fa-users"></i> 7 Seats</span>
+                <span><i class="fas fa-gas-pump"></i> Petrol</span>
+              </div>
+              <div class="car-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>4.9</span>
+              </div>
+              <div class="car-footer">
+                <div class="car-price">
+                  <span class="price">Rp 1.1M</span
+                  ><span class="per">/day</span>
+                </div>
+                <div class="car-actions">
+                  <button class="btn-view" onclick="openModal(8)">
+                    Details
+                  </button>
+                  <button
+                    class="btn-rent"
+                    onclick="window.location.href = '#booking'"
+                  >
+                    Rent Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /cars-grid -->
+        <div id="noResults" style="display: none" class="no-results">
+          No cars found. Try a different search.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CAR DETAIL MODAL ===== -->
+    <div class="modal-overlay" id="carModal">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-img-wrap">
+          <img id="modalImg" src="" alt="" />
+          <span id="modalBadge" class="car-badge"></span>
+        </div>
+        <div class="modal-body">
+          <h2 id="modalName"></h2>
+          <p id="modalDesc" class="modal-desc"></p>
+          <div class="modal-features" id="modalFeatures"></div>
+          <div class="modal-specs-grid" id="modalSpecs"></div>
+          <div class="modal-footer">
+            <div class="modal-price" id="modalPrice"></div>
+            <a href="#booking" class="btn-primary" onclick="closeModal()"
+              >Book This Car <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <p class="section-pre">Happy Customers</p>
+          <h2 class="section-title">
+            What our clients<br /><em>say about us</em>
+          </h2>
+        </div>
+        <div
+          class="swiper testimonials-swiper"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p class="testi-text">
+                  "Absolutely brilliant service! The Alphard was immaculate and
+                  the team was super professional. Will definitely book again
+                  for our family trip."
+                </p>
+                <div class="testi-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                    alt="Sarah K."
+                  />
+                  <div><strong>Sarah Kusuma</strong><span>Jakarta</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p class="testi-text">
+                  "Rented the Pajero Sport for our mountain trip. Smooth booking
+                  process and the car was in perfect condition. Highly
+                  recommended!"
+                </p>
+                <div class="testi-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="Budi R."
+                  />
+                  <div>
+                    <strong>Budi Raharjo</strong><span>Yogyakarta</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="testi-text">
+                  "Best car rental experience I've had. The Skoda Kodiaq was a
+                  dream to drive. Great value for money and excellent customer
+                  support."
+                </p>
+                <div class="testi-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="Dewi S."
+                  />
+                  <div><strong>Dewi Santika</strong><span>Surabaya</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p class="testi-text">
+                  "Used the Hiace for our office team outing — everyone was so
+                  comfortable! Easy reservation, on-time delivery, and friendly
+                  driver. 10/10!"
+                </p>
+                <div class="testi-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/54.jpg"
+                    alt="Raka P."
+                  />
+                  <div><strong>Raka Pratama</strong><span>Bandung</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section id="faq" class="faq-section">
+      <div class="container faq-container">
+        <div class="faq-left" data-aos="fade-right">
+          <p class="section-pre">Support</p>
+          <h2 class="section-title">
+            Frequently<br /><em>Asked Questions</em>
+          </h2>
+          <p class="section-sub">
+            Everything you need to know before hitting the road with us.
+          </p>
+          <img
+            src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80"
+            alt="Travel"
+            class="faq-img"
+          />
+        </div>
+        <div class="faq-right" data-aos="fade-left">
+          <div class="accordion" id="faqAccordion">
+            <div class="acc-item">
+              <button class="acc-header">
+                <span>How can I make a booking?</span>
+                <i class="fas fa-plus acc-icon"></i>
+              </button>
+              <div class="acc-body">
+                <p>
+                  You can make a booking directly through our online booking
+                  form on the website. Simply fill in your details, choose your
+                  preferred vehicle, and select your dates. You'll receive a
+                  confirmation email within minutes.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-header">
+                <span>What is your cancellation policy?</span>
+                <i class="fas fa-plus acc-icon"></i>
+              </button>
+              <div class="acc-body">
+                <p>
+                  Free cancellation up to 48 hours before your pickup time.
+                  Cancellations within 48 hours may incur a 25% fee. No-shows
+                  are charged the full rental amount. Please contact our team as
+                  early as possible if plans change.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-header">
+                <span>Do you charge extra for insurance?</span>
+                <i class="fas fa-plus acc-icon"></i>
+              </button>
+              <div class="acc-body">
+                <p>
+                  Basic insurance is included in all rental prices. We also
+                  offer premium comprehensive coverage for an additional fee of
+                  Rp 75,000/day, which covers full collision damage and theft
+                  protection.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-header">
+                <span>Where can I collect the car?</span>
+                <i class="fas fa-plus acc-icon"></i>
+              </button>
+              <div class="acc-body">
+                <p>
+                  Vehicle pickup is available at our main office in Yogyakarta,
+                  or we can deliver directly to your hotel or airport.
+                  Door-to-door delivery is available within a 25km radius for a
+                  small fee.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-header">
+                <span>What is the airport pick-up procedure?</span>
+                <i class="fas fa-plus acc-icon"></i>
+              </button>
+              <div class="acc-body">
+                <p>
+                  Our driver will meet you at the arrivals hall with a name
+                  sign. Please share your flight details when booking. We
+                  monitor flight status, so if your flight is delayed, we'll be
+                  there when you land.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-header">
+                <span>Will my car have navigation?</span>
+                <i class="fas fa-plus acc-icon"></i>
+              </button>
+              <div class="acc-body">
+                <p>
+                  Most of our vehicles come equipped with built-in GPS
+                  navigation. For cars without built-in GPS, we provide a
+                  portable GPS device free of charge. You can also use your
+                  smartphone mounted on the provided phone holder.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <p class="section-pre">Get In Touch</p>
+          <h2 class="section-title">Contact <em>Us</em></h2>
+        </div>
+        <div class="contact-grid">
+          <!-- Left -->
+          <div class="contact-info" data-aos="fade-right">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <p>hello@rentcarpremium.id</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <strong>Phone</strong>
+                <p>+62 812 3456 7890</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <strong>Address</strong>
+                <p>Jl. Malioboro No. 88, Yogyakarta 55271</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <strong>Working Hours</strong>
+                <p>Mon–Sat: 08.00–20.00 WIB<br />Sun: 09.00–17.00 WIB</p>
+              </div>
+            </div>
+            <div class="contact-socials">
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <div class="map-embed">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0977887744486!2d110.3624!3d-7.7971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5790490ec753%3A0x94bdf67a7c4680ba!2sMalioboro%2C%20Yogyakarta!5e0!3m2!1sen!2sid!4v1234567890"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <!-- Right -->
+          <div class="contact-form-wrap" data-aos="fade-left">
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  id="cName"
+                  placeholder="Your full name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  id="cEmail"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="cPhone" placeholder="+62 xxx xxxx xxxx" />
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea
+                  id="cMessage"
+                  rows="5"
+                  placeholder="How can we help?"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full">
+                Send Message <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer">
+      <div class="footer-gradient-line"></div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="nav-logo footer-logo">RentCar<span>Premium</span></div>
+            <p>
+              Premium car rental experience crafted for those who value comfort,
+              style, and reliability.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#fleet">Fleet</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#booking">Book Now</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Reservation</h4>
+            <ul>
+              <li><i class="fas fa-phone"></i> +62 812 3456 7890</li>
+              <li><i class="fas fa-envelope"></i> hello@rentcarpremium.id</li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i> Jl. Malioboro No. 88,
+                Yogyakarta
+              </li>
+              <li><i class="fas fa-clock"></i> 08.00 – 20.00 WIB</li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Get exclusive deals and updates in your inbox.</p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input
+                type="email"
+                id="nlEmail"
+                placeholder="your@email.com"
+                required
+              />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            © 2025 RentCarPremium. All rights reserved. Crafted with
+            <i class="fas fa-heart"></i> in Yogyakarta. <a href="dashboard.html" style="color: inherit; text-decoration: none; margin-left: 8px; opacity: 0.3;" title="Admin Dashboard"><i class="fas fa-lock"></i></a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button id="backTop" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===== TOAST ===== -->
+    <div id="toast" class="toast">
+      <i class="fas fa-check-circle"></i>
+      <span id="toastMsg">Message sent!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
