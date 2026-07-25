@@ -276,10 +276,10 @@ const defaultLandingData = {
 };
 
 // Force version migration to Indonesian defaults
-if (localStorage.getItem("cozycar_lang_v4") !== "true") {
+if (localStorage.getItem("cozycar_lang_v6") !== "true") {
   localStorage.removeItem("cozycar_fleet");
   localStorage.removeItem("cozycar_landing_data");
-  localStorage.setItem("cozycar_lang_v4", "true");
+  localStorage.setItem("cozycar_lang_v6", "true");
 }
 
 let sharedFleet = JSON.parse(localStorage.getItem("cozycar_fleet"));
@@ -323,13 +323,14 @@ document.addEventListener("DOMContentLoaded", () => {
   initDarkMode();
   initSmoothScroll();
   initEmptyLinks();
+  initAdminSecretAccess();
 });
 
 /* ===== Apply LocalStorage Landing Page Data ===== */
 function applyLandingPageData() {
   const setTxt = (id, val) => {
     const el = document.getElementById(id);
-    if (el) el.textContent = val;
+    if (el && val) el.textContent = val;
   };
 
   // Section 4: Hero
@@ -337,7 +338,7 @@ function applyLandingPageData() {
   setTxt("heroSub", landingData.heroSub);
 
   const heroBtn = document.getElementById("heroBtnText");
-  if (heroBtn) {
+  if (heroBtn && landingData.heroBtnText) {
     heroBtn.innerHTML = `${landingData.heroBtnText} <i class="fas fa-arrow-right"></i>`;
   }
 
@@ -360,11 +361,11 @@ function applyLandingPageData() {
 
   // Section 11: Why Choose Us
   const whyTitleEl = document.getElementById("whyTitle");
-  if (whyTitleEl) {
-    whyTitleEl.innerHTML = landingData.whyTitle.replace(
-      /CozyCar Rental/g,
-      "<em>CozyCar Rental</em>",
-    );
+  if (whyTitleEl && landingData.whyTitle) {
+    const val = landingData.whyTitle;
+    whyTitleEl.innerHTML = val.includes("<em>")
+      ? val
+      : val.replace(/CozyCar Rental/gi, "<em>CozyCar Rental</em>");
   }
   setTxt("why1Title", landingData.why1Title);
   setTxt("why1Desc", landingData.why1Desc);
@@ -375,11 +376,11 @@ function applyLandingPageData() {
 
   // Section 12: How It Works
   const procTitleEl = document.getElementById("procTitle");
-  if (procTitleEl) {
-    procTitleEl.innerHTML = landingData.procTitle.replace(
-      /Book Your Ride/g,
-      "<em>Book Your Ride</em>",
-    );
+  if (procTitleEl && landingData.procTitle) {
+    const val = landingData.procTitle;
+    procTitleEl.innerHTML = val.includes("<em>")
+      ? val
+      : val.replace(/(Memesan Mobil|Book Your Ride)/gi, "<em>$1</em>");
   }
   setTxt("proc1Title", landingData.proc1Title);
   setTxt("proc1Desc", landingData.proc1Desc);
@@ -390,11 +391,11 @@ function applyLandingPageData() {
 
   // Section 14: Main Catalog
   const catTitleEl = document.getElementById("catalogTitle");
-  if (catTitleEl) {
-    catTitleEl.innerHTML = landingData.catalogTitle.replace(
-      /and modern fleet/g,
-      "<em>and modern fleet</em>",
-    );
+  if (catTitleEl && landingData.catalogTitle) {
+    const val = landingData.catalogTitle;
+    catTitleEl.innerHTML = val.includes("<em>")
+      ? val
+      : val.replace(/(Modern Kami|and modern fleet)/gi, "<em>$1</em>");
   }
   setTxt("catalogSub", landingData.catalogSub);
 
@@ -1075,4 +1076,53 @@ function initEmptyLinks() {
       }
     });
   });
+}
+
+/* ===== Secret Admin Access Trigger ===== */
+function initAdminSecretAccess() {
+  const copyrightEl = document.getElementById("footerCopyright");
+  if (copyrightEl) {
+    let clickCount = 0;
+    let timer;
+    copyrightEl.addEventListener("click", () => {
+      clickCount++;
+      clearTimeout(timer);
+      if (clickCount >= 3) {
+        clickCount = 0;
+        if (window.Swal) {
+          Swal.fire({
+            title: "Akses Dashboard Admin",
+            input: "password",
+            inputLabel: "Masukkan Kata Sandi Admin",
+            inputPlaceholder: "Kata sandi...",
+            showCancelButton: true,
+            confirmButtonText: "Masuk",
+            cancelButtonText: "Batal",
+            confirmButtonColor: "#d4af37",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              if (result.value === "admin123" || result.value === "admin") {
+                sessionStorage.setItem("cozycar_admin_auth", "true");
+                window.location.href = "dashboard.html";
+              } else {
+                Swal.fire("Akses Ditolak!", "Kata sandi admin salah.", "error");
+              }
+            }
+          });
+        } else {
+          const pass = prompt("Masukkan Kata Sandi Admin:");
+          if (pass === "admin123" || pass === "admin") {
+            sessionStorage.setItem("cozycar_admin_auth", "true");
+            window.location.href = "dashboard.html";
+          } else if (pass) {
+            alert("Kata sandi admin salah!");
+          }
+        }
+      } else {
+        timer = setTimeout(() => {
+          clickCount = 0;
+        }, 600);
+      }
+    });
+  }
 }

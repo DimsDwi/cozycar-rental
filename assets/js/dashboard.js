@@ -1,11 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* ===== ADMIN SECURITY AUTH GATE ===== */
+  const verifyAdminAccess = () => {
+    if (sessionStorage.getItem("cozycar_admin_auth") !== "true") {
+      const askPass = () => {
+        if (window.Swal) {
+          Swal.fire({
+            title: "Akses Dashboard Admin",
+            text: "Masukkan kata sandi admin untuk melanjutkan:",
+            input: "password",
+            inputPlaceholder: "Kata sandi...",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            confirmButtonText: "Masuk Dashboard",
+            confirmButtonColor: "#d4af37",
+          }).then((result) => {
+            if (
+              result.isConfirmed &&
+              (result.value === "admin123" || result.value === "admin")
+            ) {
+              sessionStorage.setItem("cozycar_admin_auth", "true");
+              Swal.fire({
+                icon: "success",
+                title: "Akses Diterima",
+                text: "Selamat datang di Dashboard Admin CozyCar!",
+                timer: 1500,
+                showConfirmButton: false,
+              });
+            } else {
+              Swal.fire(
+                "Akses Ditolak",
+                "Kata sandi tidak valid. Kembali ke halaman utama...",
+                "error",
+              ).then(() => {
+                window.location.href = "index.html";
+              });
+            }
+          });
+        } else {
+          const pass = prompt("Masukkan Kata Sandi Admin:");
+          if (pass === "admin123" || pass === "admin") {
+            sessionStorage.setItem("cozycar_admin_auth", "true");
+          } else {
+            alert("Akses Ditolak!");
+            window.location.href = "index.html";
+          }
+        }
+      };
+      setTimeout(askPass, 100);
+    }
+  };
+  verifyAdminAccess();
+
   /* ===== STATE MANAGEMENT (SHARED LOCALSTORAGE DATABASE) ===== */
   const loadSharedData = () => {
     // Force version migration to Indonesian defaults
-    if (localStorage.getItem("cozycar_lang_v4") !== "true") {
+    if (localStorage.getItem("cozycar_lang_v6") !== "true") {
       localStorage.removeItem("cozycar_fleet");
       localStorage.removeItem("cozycar_landing_data");
-      localStorage.setItem("cozycar_lang_v4", "true");
+      localStorage.setItem("cozycar_lang_v6", "true");
     }
 
     // 1. Fleet Catalog
