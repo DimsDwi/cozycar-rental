@@ -8,13 +8,13 @@ const defaultFleet = [
     name: "Toyota Avanza",
     category: "economy",
     img: "https://th.bing.com/th/id/OIP.oUgGefpCbE5vS0LjZGcq3wHaEK?w=265&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "The Toyota Avanza is our most popular family MPV — spacious, fuel-efficient, and perfectly suited for city drives and long road trips alike. Comfortable for groups of up to 7 passengers.",
+    desc: "Toyota Avanza adalah MPV keluarga terfavorit kami — lapang, irit bahan bakar, dan sangat cocok untuk perjalanan dalam kota maupun luar kota. Nyaman untuk hingga 7 penumpang.",
     features: [
       "AC",
       "Bluetooth",
       "USB Charger",
       "Power Windows",
-      "Child Seat Ready",
+      "Kursi Bayi Ready",
     ],
     icons: [
       "fa-wind",
@@ -24,11 +24,11 @@ const defaultFleet = [
       "fa-baby-carriage",
     ],
     transmission: "Manual",
-    seats: "7 Seats",
-    fuel: "Petrol",
-    baggage: "Large",
-    price: "Rp 350.000/day",
-    badge: "Economy",
+    seats: "7 Kursi",
+    fuel: "Bensin",
+    baggage: "Besar",
+    price: "Rp 350.000/hari",
+    badge: "Ekonomi",
     badgeClass: "economy",
     status: "available",
   },
@@ -36,8 +36,8 @@ const defaultFleet = [
     name: "Pajero Sport",
     category: "suv",
     img: "https://th.bing.com/th/id/OIP.t22fXZm8ajaMk3SZnd7yOwHaEh?w=259&h=150&c=6&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "Dominate any terrain with the Mitsubishi Pajero Sport. Built for adventure seekers who refuse to compromise on comfort. Ideal for mountain routes and challenging roads.",
-    features: ["AC", "GPS Navigation", "Bluetooth", "4WD", "USB Charger"],
+    desc: "Taklukkan berbagai medan dengan Mitsubishi Pajero Sport. Dirancang untuk jiwa petualang yang tetap mengutamakan kenyamanan. Sangat ideal untuk rute pegunungan dan medan menantang.",
+    features: ["AC", "Navigasi GPS", "Bluetooth", "4WD", "USB Charger"],
     icons: [
       "fa-wind",
       "fa-map-marker-alt",
@@ -45,11 +45,11 @@ const defaultFleet = [
       "fa-road",
       "fa-usb",
     ],
-    transmission: "Automatic",
-    seats: "7 Seats",
+    transmission: "Otomatis",
+    seats: "7 Kursi",
     fuel: "Diesel",
-    baggage: "Extra Large",
-    price: "Rp 850.000/day",
+    baggage: "Sangat Besar",
+    price: "Rp 850.000/hari",
     badge: "SUV",
     badgeClass: "suv",
     status: "rented",
@@ -58,13 +58,13 @@ const defaultFleet = [
     name: "Toyota Raize",
     category: "economy",
     img: "https://th.bing.com/th/id/OIP.m85mOLIDQ7piIHSHy_spLgHaEo?w=328&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "Compact yet commanding, the Toyota Raize is your urban escape companion. Its stylish design and peppy CVT make navigating city traffic genuinely enjoyable.",
+    desc: "Kompak namun tangguh, Toyota Raize adalah teman perjalanan perkotaan Anda. Desain stylish dan transmisi CVT yang responsif membuat navigasi lalu lintas kota menjadi menyenangkan.",
     features: [
       "AC",
       "Bluetooth",
-      "GPS Navigation",
+      "Navigasi GPS",
       "USB Charger",
-      "360 Camera",
+      "Kamera 360",
     ],
     icons: [
       "fa-wind",
@@ -74,11 +74,11 @@ const defaultFleet = [
       "fa-camera",
     ],
     transmission: "CVT",
-    seats: "5 Seats",
-    fuel: "Petrol",
-    baggage: "Medium",
-    price: "Rp 450.000/day",
-    badge: "Economy",
+    seats: "5 Kursi",
+    fuel: "Bensin",
+    baggage: "Sedang",
+    price: "Rp 450.000/hari",
+    badge: "Ekonomi",
     badgeClass: "economy",
     status: "available",
   },
@@ -86,7 +86,7 @@ const defaultFleet = [
     name: "Honda Brio",
     category: "economy",
     img: "https://th.bing.com/th/id/OIP.tw2qW6LhWyCzQKC5aZrY2QHaE8?w=253&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "The Honda Brio is the perfect city companion — lightweight, agile, and easy to park. Great fuel economy makes it ideal for extended journeys on a budget.",
+    desc: "Honda Brio adalah mobil kota yang sempurna — ringan, lincah, dan mudah diparkir. Sangat irit bahan bakar, menjadikannya pilihan ideal untuk perjalanan hemat.",
     features: [
       "AC",
       "Bluetooth",
@@ -96,11 +96,11 @@ const defaultFleet = [
     ],
     icons: ["fa-wind", "fa-bluetooth", "fa-usb", "fa-steering-wheel", "fa-key"],
     transmission: "CVT",
-    seats: "5 Seats",
-    fuel: "Petrol",
-    baggage: "Small",
-    price: "Rp 300.000/day",
-    badge: "Economy",
+    seats: "5 Kursi",
+    fuel: "Bensin",
+    baggage: "Kecil",
+    price: "Rp 300.000/hari",
+    badge: "Ekonomi",
     badgeClass: "economy",
     status: "available",
   },
@@ -108,13 +108,13 @@ const defaultFleet = [
     name: "Toyota Yaris",
     category: "economy",
     img: "https://th.bing.com/th/id/OIP.pTMqt5w8bcjOJmfh1vdY1gHaE8?w=244&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "Sporty, sleek, and surprisingly spacious for its class. The Toyota Yaris blends modern aesthetics with reliable performance for the discerning everyday driver.",
+    desc: "Sporty, elegan, dan sangat luas untuk kelasnya. Toyota Yaris memadukan estetika modern dengan performa andal untuk kenyamanan berkendara harian Anda.",
     features: [
       "AC",
       "Bluetooth",
-      "GPS Navigation",
+      "Navigasi GPS",
       "USB Charger",
-      "Parking Sensor",
+      "Sensor Parkir",
     ],
     icons: [
       "fa-wind",
@@ -124,11 +124,11 @@ const defaultFleet = [
       "fa-parking",
     ],
     transmission: "CVT",
-    seats: "5 Seats",
-    fuel: "Petrol",
-    baggage: "Medium",
-    price: "Rp 380.000/day",
-    badge: "Economy",
+    seats: "5 Kursi",
+    fuel: "Bensin",
+    baggage: "Sedang",
+    price: "Rp 380.000/hari",
+    badge: "Ekonomi",
     badgeClass: "economy",
     status: "available",
   },
@@ -136,10 +136,10 @@ const defaultFleet = [
     name: "Toyota Alphard",
     category: "premium",
     img: "https://th.bing.com/th/id/OIP.Qn-1zHXewPxutdXA5yAZLQHaE8?w=240&h=150&c=6&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "The pinnacle of luxury MPV travel. The Toyota Alphard delivers a hotel-on-wheels experience with captain seats, ambient lighting, and whisper-quiet ride quality.",
+    desc: "Puncak kenyamanan perjalanan MPV mewah. Toyota Alphard menghadirkan pengalaman serasa hotel berjalan dengan captain seat, pencahayaan kabin elegan, dan rasa berkendara yang tenang.",
     features: [
       "Dual AC",
-      "GPS Navigation",
+      "Navigasi GPS",
       "Bluetooth",
       "USB Charger",
       "Sunroof",
@@ -153,12 +153,12 @@ const defaultFleet = [
       "fa-sun",
       "fa-chair",
     ],
-    transmission: "Automatic",
-    seats: "7 Seats",
+    transmission: "Otomatis",
+    seats: "7 Kursi",
     fuel: "Hybrid",
-    baggage: "Extra Large",
-    price: "Rp 1.500.000/day",
-    badge: "Premium",
+    baggage: "Sangat Besar",
+    price: "Rp 1.500.000/hari",
+    badge: "Mewah",
     badgeClass: "premium",
     status: "available",
   },
@@ -166,14 +166,14 @@ const defaultFleet = [
     name: "Toyota Hiace",
     category: "van",
     img: "https://th.bing.com/th/id/OIP.B_0JEHa3Nm3IFk8mjK9M3AHaE8?w=270&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    desc: "The go-to vehicle for group travel and corporate transfers. The Toyota Hiace offers exceptional cargo capacity and comfortable seating for up to 15 passengers.",
-    features: ["AC", "Bluetooth", "USB Charger", "CCTV Ready", "Wide Body"],
+    desc: "Pilihan utama untuk perjalanan rombongan dan ketersediaan kendaraan operasional. Toyota Hiace menawarkan kapasitas bagasi luar biasa dan tempat duduk nyaman hingga 15 penumpang.",
+    features: ["AC", "Bluetooth", "USB Charger", "Kamera CCTV", "Kabin Luas"],
     icons: ["fa-wind", "fa-bluetooth", "fa-usb", "fa-video", "fa-arrows-alt-h"],
     transmission: "Manual",
-    seats: "15 Seats",
+    seats: "15 Kursi",
     fuel: "Diesel",
-    baggage: "Cargo",
-    price: "Rp 900.000/day",
+    baggage: "Kargo",
+    price: "Rp 900.000/hari",
     badge: "Van",
     badgeClass: "van",
     status: "available",
@@ -183,78 +183,78 @@ const defaultFleet = [
 // Fallback Default Landing Page Text Data for ALL sections
 const defaultLandingData = {
   // Hero Section
-  heroTagline: "Premium · Reliable · Affordable",
-  heroTitle: "Search and book your cozy car here",
+  heroTagline: "Mewah · Terpercaya · Terjangkau",
+  heroTitle: "Cari dan sewa mobil nyaman Anda di sini",
   heroSub:
-    "Premium car rental experience with modern vehicles, affordable pricing, and easy booking system.",
-  heroBtnText: "Explore Fleet",
+    "Pengalaman sewa mobil premium dengan armada modern, harga terjangkau, dan sistem pemesanan yang mudah.",
+  heroBtnText: "Jelajahi Armada",
   // Promo Tape
   promoText:
-    "🎉 Get 20% discount on your first booking! Use coupon code: COZYFIRST20",
+    "🎉 Dapatkan diskon 20% untuk pemesanan pertama Anda! Gunakan kode kupon: COZYFIRST20",
   // About Us
-  aboutTitle: "Who We Are",
+  aboutTitle: "Tentang Kami",
   aboutText:
-    "CozyCar Rental is Yogyakarta's premier transport solution. Established in 2018, we have served over 10,000+ satisfied clients. We offer high-quality self-drive cars, cars with experienced tour drivers, wedding transportation, and corporate mobility.",
+    "CozyCar Rental adalah penyedia solusi transportasi utama di Yogyakarta. Berdiri sejak tahun 2018, kami telah melayani lebih dari 10.000+ pelanggan puas. Kami menyediakan layanan sewa lepas kunci, mobil dengan pengemudi profesional, transportasi pernikahan, hingga kebutuhan operasional perusahaan.",
   // Services
-  srv1Title: "Self Drive Rental",
+  srv1Title: "Sewa Lepas Kunci",
   srv1Desc:
-    "Rent a car and drive yourself around. Flexible daily or weekly plans.",
-  srv2Title: "Driver Included",
+    "Sewa mobil dan kemudikan sendiri secara bebas. Pilihan harian atau mingguan yang fleksibel.",
+  srv2Title: "Sewa Dengan Sopir",
   srv2Desc:
-    "Rent with our experienced, polite, and english-speaking local drivers.",
-  srv3Title: "Airport Transfer",
-  srv3Desc: "Hassle-free airport pick-up and drop-off service in Yogyakarta.",
-  srv4Title: "Wedding Cars",
+    "Sewa mobil beserta pengemudi berpengalaman, ramah, dan menguasai rute perjalanan.",
+  srv3Title: "Antar Jemput Bandara",
+  srv3Desc: "Layanan penjemputan dan pengantaran bandara yang tepat waktu dan nyaman di Yogyakarta.",
+  srv4Title: "Mobil Pengantin",
   srv4Desc:
-    "Make your special day memorable with our clean, premium luxury cars.",
+    "Jadikan hari istimewa Anda berkesan dengan mobil mewah yang bersih dan elegan.",
   // Why Choose Us
-  whyTitle: "Why Choose CozyCar Rental",
-  why1Title: "Premium Fleet",
+  whyTitle: "Mengapa Memilih CozyCar Rental",
+  why1Title: "Armada Premium",
   why1Desc:
-    "Selective catalog of clean, well-maintained, and newest luxury car models.",
-  why2Title: "Best Price",
+    "Koleksi mobil terpilih yang selalu bersih, terawat, dan menggunakan model keluaran terbaru.",
+  why2Title: "Harga Terbaik",
   why2Desc:
-    "Competitive and transparent pricing. No hidden fees or surprise charges.",
-  why3Title: "24/7 Support",
+    "Harga kompetitif dan transparan. Tanpa biaya tersembunyi atau kejutan harga di akhir.",
+  why3Title: "Layanan 24/7",
   why3Desc:
-    "Support reps and road assistance crew ready round-the-clock for your safety.",
+    "Tim customer service dan bantuan darurat jalan raya siap melayani Anda 24 jam sehari.",
   // How It Works
-  procTitle: "How To Book Your Ride",
-  proc1Title: "Select Vehicle",
+  procTitle: "Cara Mudah Memesan Mobil",
+  proc1Title: "Pilih Kendaraan",
   proc1Desc:
-    "Browse our premium fleet and choose the car matching your journey.",
-  proc2Title: "Choose Dates",
+    "Jelajahi koleksi armada kami dan pilih mobil yang sesuai dengan kebutuhan perjalanan Anda.",
+  proc2Title: "Tentukan Tanggal",
   proc2Desc:
-    "Select your pickup & return dates and fill in reservation details.",
-  proc3Title: "Enjoy Journey",
+    "Pilih tanggal penjemputan & pengembalian serta lengkapi data reservasi Anda.",
+  proc3Title: "Nikmati Perjalanan",
   proc3Desc:
-    "Collect your car or have it delivered, and hit the road comfortably.",
+    "Ambil mobil Anda atau minta diantarkan ke lokasi Anda, lalu nikmati perjalanan dengan nyaman.",
   // Main Fleet Catalog Headers
-  catalogTitle: "Browse our extensive and modern fleet",
+  catalogTitle: "Jelajahi Koleksi Armada Modern Kami",
   catalogSub:
-    "Choose from our carefully curated selection of premium vehicles for every journey.",
+    "Pilih dari berbagai kategori kendaraan berkualitas untuk setiap jenis perjalanan Anda.",
   // Pricing Packages
-  packagesTitle: "Our Pricing Packages",
-  packagesSub: "Choose the pricing model that fits your travel duration best.",
+  packagesTitle: "Paket Harga Sewa",
+  packagesSub: "Pilih skema harga yang paling sesuai dengan durasi dan kebutuhan perjalanan Anda.",
   // Safety Section
-  safetyTitle: "Safe & Sanitized Vehicles",
+  safetyTitle: "Kendaraan Aman & Higienis",
   safetyDesc:
-    "Every car in our fleet undergoes strict 25-point inspection, complete sanitization, and deep cleaning after every single rental to guarantee your safety and peace of mind.",
+    "Setiap mobil di armada kami melalui inspeksi ketat 25 poin, pembersihan menyeluruh, dan disinfeksi total setelah setiap penyewaan untuk menjamin keselamatan dan kenyamanan Anda.",
   // Loyalty Club
-  loyaltyTitle: "Join Our Premium Member Club",
+  loyaltyTitle: "Bergabunglah dengan Klub Member Premium",
   loyaltyDesc:
-    "Earn points on every trip, get priority car upgrades, and unlock exclusive discounts up to 30%. Register now for free!",
+    "Kumpulkan poin setiap kali menyewa, dapatkan prioritas upgrade mobil, dan buka diskon eksklusif hingga 30%. Daftar sekarang gratis!",
   // Call To Action (CTA)
-  ctaTitle: "Ready to hit the road?",
+  ctaTitle: "Siap Memulai Perjalanan Anda?",
   ctaDesc:
-    "Book your comfortable and luxury ride now. Rent a car in 3 simple steps.",
+    "Pesan mobil impian Anda yang nyaman dan mewah sekarang. Cukup sewa mobil dalam 3 langkah mudah.",
   // Rental Requirements
-  termsTitle: "Rental Requirements",
-  term1: "Valid Identity Card (KTP/Passport) required for verification.",
+  termsTitle: "Syarat & Ketentuan Sewa",
+  term1: "Identitas diri asli yang berlaku (KTP/Paspor) untuk verifikasi data.",
   term2:
-    "Valid Driver's License (SIM A / International License) for self-drive.",
-  term3: "Security deposit of Rp 500.000 returned on car drop-off.",
-  term4: "Fuel must be returned at the same level as pickup.",
+    "Surat Izin Mengemudi (SIM A / SIM Internasional) yang masih berlaku untuk lepas kunci.",
+  term3: "Deposit jaminan sebesar Rp 500.000 (dikembalikan saat pengembalian mobil).",
+  term4: "BBM dikembalikan sesuai dengan posisi awal saat penjemputan mobil.",
   // FAQ Section
   faqTitle: "Pertanyaan yang Sering Diajukan",
   faqSub: "Semua hal yang perlu Anda ketahui sebelum menyewa mobil kami.",
@@ -262,53 +262,34 @@ const defaultLandingData = {
   phone: "+62 812 3456 7890",
   email: "hello@cozycar-rental.my.id",
   address: "Jl. Malioboro No. 88, Yogyakarta 55271",
-  hours: "Mon–Sat: 08.00–20.00 WIB",
+  hours: "Senin–Sabtu: 08.00–20.00 WIB",
   // Newsletter
-  newsTitle: "Newsletter Subscriptions",
-  newsDesc: "Get exclusive deals and weekly discount codes in your inbox.",
+  newsTitle: "Berlangganan Newsletter",
+  newsDesc: "Dapatkan penawaran eksklusif dan kode diskon mingguan langsung di email Anda.",
   // Footer
   footerDesc:
-    "Premium car rental experience crafted for those who value comfort, style, and reliability.",
+    "Pengalaman sewa mobil premium yang dirancang bagi Anda yang mengutamakan kenyamanan, gaya, dan keandalan.",
   copyright:
-    "© 2025 CozyCar Rental. All rights reserved. Crafted with heart in Yogyakarta.",
+    "© 2025 CozyCar Rental. Hak cipta dilindungi undang-undang. Dibuat dengan sepenuh hati di Yogyakarta.",
   // Stats Counters
   clients: 500,
   cars: 30,
   rating: 5,
 };
 
-// Load shared data
+// Load shared data with full Indonesian sync
 let sharedFleet = JSON.parse(localStorage.getItem("cozycar_fleet"));
-if (!sharedFleet) {
+if (!sharedFleet || sharedFleet.length === 0 || sharedFleet[0].seats?.includes("Seats")) {
   sharedFleet = defaultFleet;
   localStorage.setItem("cozycar_fleet", JSON.stringify(sharedFleet));
 }
 
 let landingData = JSON.parse(localStorage.getItem("cozycar_landing_data"));
-if (!landingData) {
+if (!landingData || landingData.heroTagline?.includes("Premium · Reliable")) {
   landingData = defaultLandingData;
   localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
 } else {
-  // Translate if old English titles are found in localstorage
-  if (landingData.faqTitle === "Frequently Asked Questions") {
-    landingData.faqTitle = "Pertanyaan yang Sering Diajukan";
-  }
-  if (
-    landingData.faqSub ===
-    "Everything you need to know before hitting the road with us."
-  ) {
-    landingData.faqSub =
-      "Semua hal yang perlu Anda ketahui sebelum menyewa mobil kami.";
-  }
-  // Run replacement migration for brand name update
-  for (const key in landingData) {
-    if (typeof landingData[key] === "string") {
-      landingData[key] = landingData[key]
-        .replace(/RentCarPremium/g, "CozyCar Rental")
-        .replace(/rentcarpremium\.id/g, "cozycar-rental.my.id");
-    }
-  }
-  // Merge missing keys to prevent script breaks if config expands
+  // Always update keys from defaultLandingData to ensure clean Indonesian text
   landingData = { ...defaultLandingData, ...landingData };
   localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
 }
@@ -640,14 +621,14 @@ function renderFleetHome() {
     card.setAttribute("data-aos-delay", (index % 3) * 80);
 
     let badgeHtml = `<span class="car-badge ${car.badgeClass}">${car.badge}</span>`;
-    let rentButtonHtml = `<button class="btn-rent" onclick="window.location.href='#booking-section'; selectCarDropdown('${car.name}')">Rent Now</button>`;
+    let rentButtonHtml = `<button class="btn-rent" onclick="window.location.href='#booking-section'; selectCarDropdown('${car.name}')">Sewa Sekarang</button>`;
 
     if (car.status === "rented") {
-      badgeHtml = `<span class="car-badge" style="background:#3b82f6">Rented</span>`;
-      rentButtonHtml = `<button class="btn-rent disabled" style="background:#64748b;cursor:not-allowed;" disabled>Rented</button>`;
+      badgeHtml = `<span class="car-badge" style="background:#3b82f6">Disewa</span>`;
+      rentButtonHtml = `<button class="btn-rent disabled" style="background:#64748b;cursor:not-allowed;" disabled>Disewa</button>`;
     } else if (car.status === "maintenance") {
-      badgeHtml = `<span class="car-badge" style="background:#ef4444">In Maintenance</span>`;
-      rentButtonHtml = `<button class="btn-rent disabled" style="background:#64748b;cursor:not-allowed;" disabled>Unavailable</button>`;
+      badgeHtml = `<span class="car-badge" style="background:#ef4444">Perawatan</span>`;
+      rentButtonHtml = `<button class="btn-rent disabled" style="background:#64748b;cursor:not-allowed;" disabled>Tidak Tersedia</button>`;
     }
 
     card.innerHTML = `
@@ -667,9 +648,9 @@ function renderFleetHome() {
           <span>4.8</span>
         </div>
         <div class="car-footer">
-          <div class="car-price"><span class="price">${car.price.split("/")[0]}</span><span class="per">/day</span></div>
+          <div class="car-price"><span class="price">${car.price.split("/")[0]}</span><span class="per">/hari</span></div>
           <div class="car-actions">
-            <button class="btn-view" onclick="openModal(${index})">Details</button>
+            <button class="btn-view" onclick="openModal(${index})">Detail</button>
             ${rentButtonHtml}
           </div>
         </div>
@@ -729,7 +710,7 @@ function filterCars(filter, query) {
 function populateCarDropdown() {
   const select = document.getElementById("bCarType");
   if (!select) return;
-  select.innerHTML = '<option value="">Select vehicle...</option>';
+  select.innerHTML = '<option value="">Pilih kendaraan...</option>';
 
   sharedFleet.forEach((car) => {
     if (car.status === "available") {
@@ -759,7 +740,7 @@ window.openModal = (idx) => {
   document.getElementById("modalName").textContent = car.name;
   document.getElementById("modalDesc").textContent =
     car.desc ||
-    "Experience absolute luxury and convenience with our top-tier car services, crafted for your ultimate journey.";
+    "Nikmati kenyamanan dan kemewahan mutlak bersama layanan sewa mobil terbaik kami, dirancang khusus untuk perjalanan impian Anda.";
 
   const badge = document.getElementById("modalBadge");
   badge.textContent = car.badge || car.category.toUpperCase();
@@ -777,12 +758,12 @@ window.openModal = (idx) => {
 
   const specsEl = document.getElementById("modalSpecs");
   specsEl.innerHTML = `
-    <div class="spec-item"><span>Transmission</span><strong>${car.transmission}</strong></div>
-    <div class="spec-item"><span>Capacity</span><strong>${car.seats}</strong></div>
-    <div class="spec-item"><span>Fuel Type</span><strong>${car.fuel}</strong></div>
-    <div class="spec-item"><span>Baggage</span><strong>${car.baggage || "Medium"}</strong></div>
-    <div class="spec-item"><span>Category</span><strong>${car.badge || car.category}</strong></div>
-    <div class="spec-item"><span>Rating</span><strong>★ 4.8+</strong></div>
+    <div class="spec-item"><span>Transmisi</span><strong>${car.transmission}</strong></div>
+    <div class="spec-item"><span>Kapasitas</span><strong>${car.seats}</strong></div>
+    <div class="spec-item"><span>Bahan Bakar</span><strong>${car.fuel}</strong></div>
+    <div class="spec-item"><span>Bagasi</span><strong>${car.baggage || "Sedang"}</strong></div>
+    <div class="spec-item"><span>Kategori</span><strong>${car.badge || car.category}</strong></div>
+    <div class="spec-item"><span>Penilaian</span><strong>★ 4.8+</strong></div>
   `;
 
   document.getElementById("modalPrice").textContent = car.price;
@@ -845,8 +826,8 @@ function initBookingForm() {
     ) {
       Swal.fire({
         icon: "warning",
-        title: "Incomplete Form",
-        text: "Please fill in all required fields before proceeding.",
+        title: "Formulir Belum Lengkap",
+        text: "Harap isi semua kolom yang wajib diisi sebelum melanjutkan.",
         confirmButtonColor: "#d4af37",
       });
       return;
@@ -855,8 +836,8 @@ function initBookingForm() {
     if (new Date(ret) <= new Date(pickup)) {
       Swal.fire({
         icon: "error",
-        title: "Invalid Dates",
-        text: "Return date must be after pickup date.",
+        title: "Tanggal Tidak Valid",
+        text: "Tanggal pengembalian harus setelah tanggal penjemputan.",
         confirmButtonColor: "#d4af37",
       });
       return;
@@ -866,8 +847,8 @@ function initBookingForm() {
     if (!emailRegex.test(email)) {
       Swal.fire({
         icon: "error",
-        title: "Invalid Email",
-        text: "Please enter a valid email address.",
+        title: "Email Tidak Valid",
+        text: "Harap masukkan alamat email yang valid.",
         confirmButtonColor: "#d4af37",
       });
       return;
@@ -900,17 +881,17 @@ function initBookingForm() {
 
     Swal.fire({
       icon: "success",
-      title: "🎉 Booking Received!",
+      title: "🎉 Pemesanan Diterima!",
       html: `
         <p style="color:#5a5a5a;line-height:1.7">
-          Thank you, <strong>${name}</strong>!<br/>
-          Your request for <strong>${carSelected}</strong> for <strong>${days} day(s)</strong> has been logged.<br/><br/>
-          Estimated Price: <strong>Rp ${totalCost.toLocaleString("id-ID")}</strong>.<br/>
-          You can track this booking under code: <strong>${nextId}</strong>.
+          Terima kasih, <strong>${name}</strong>!<br/>
+          Permintaan sewa untuk <strong>${carSelected}</strong> selama <strong>${days} hari</strong> telah dicatat.<br/><br/>
+          Estimasi Biaya: <strong>Rp ${totalCost.toLocaleString("id-ID")}</strong>.<br/>
+          Anda dapat memantau pemesanan ini dengan kode: <strong>${nextId}</strong>.
         </p>
       `,
       confirmButtonColor: "#d4af37",
-      confirmButtonText: "Great, thanks!",
+      confirmButtonText: "Bagus, Terima Kasih!",
     });
     form.reset();
   });
@@ -920,7 +901,7 @@ function initBookingForm() {
 window.selectPackage = (packageName) => {
   const messageInput = document.getElementById("bMessage");
   if (messageInput) {
-    messageInput.value = `Interested in ordering the: ${packageName}.`;
+    messageInput.value = `Berminat untuk memesan paket: ${packageName}.`;
   }
 };
 
@@ -928,19 +909,19 @@ window.selectLoyalty = () => {
   const messageInput = document.getElementById("cMessage");
   if (messageInput) {
     messageInput.value =
-      "I would like to register for the Loyalty Member Club. Please send details to my email.";
+      "Saya ingin mendaftar Klub Member Premium. Mohon kirimkan detail informasi ke email saya.";
   }
 };
 
 window.playPromoVideo = () => {
   if (window.Swal) {
     Swal.fire({
-      title: "CozyCar Rental – Promotional Video",
+      title: "CozyCar Rental – Video Promosi",
       html: `
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
           <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" 
             src="https://www.youtube.com/embed/1Z51h-Lek8w?autoplay=1" 
-            title="Promo Video" frameborder="0" 
+            title="Video Promosi" frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
           </iframe>
@@ -964,15 +945,15 @@ function initContactForm() {
     const msg = document.getElementById("cMessage").value.trim();
 
     if (!name || !email || !msg) {
-      showToast("Please fill in all required fields.", false);
+      showToast("Harap isi semua kolom yang wajib diisi.", false);
       return;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      showToast("Please enter a valid email address.", false);
+      showToast("Harap masukkan alamat email yang valid.", false);
       return;
     }
-    showToast(`Message sent! We'll get back to you soon, ${name}.`);
+    showToast(`Pesan terkirim! Kami akan segera menghubungi Anda, ${name}.`);
     form.reset();
   });
 }
@@ -985,10 +966,10 @@ function initNewsletterForm() {
     e.preventDefault();
     const email = document.getElementById("nlEmail").value.trim();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showToast("Please enter a valid email.", false);
+      showToast("Harap masukkan email yang valid.", false);
       return;
     }
-    showToast("Successfully subscribed to our newsletter!");
+    showToast("Berhasil berlangganan newsletter kami!");
     form.reset();
   });
 }
@@ -1080,8 +1061,8 @@ function initEmptyLinks() {
       if (window.Swal) {
         Swal.fire({
           icon: "info",
-          title: "Social Media Connection",
-          text: "This channel is currently being set up. Follow us on Instagram for updates!",
+          title: "Koneksi Media Sosial",
+          text: "Saluran ini sedang dalam penyiapan. Ikuti kami di Instagram untuk pembaruan terbaru!",
           confirmButtonColor: "#d4af37",
         });
       }

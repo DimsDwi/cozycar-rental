@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="id" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard - CozyCar Rental</title>
+    <title>Dashboard Admin - CozyCar Rental</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,29 +44,29 @@
         </li>
         <li>
           <a href="#" class="sidebar-link" data-target="bookings">
-            <i class="fas fa-calendar-check"></i> Bookings
+            <i class="fas fa-calendar-check"></i> Kelola Pemesanan
           </a>
         </li>
         <li>
           <a href="#" class="sidebar-link" data-target="fleet">
-            <i class="fas fa-car"></i> Fleet Management
+            <i class="fas fa-car"></i> Manajemen Armada
           </a>
         </li>
         <li>
           <a href="#" class="sidebar-link" data-target="customers">
-            <i class="fas fa-users"></i> Customers
+            <i class="fas fa-users"></i> Data Pelanggan
           </a>
         </li>
         <li>
           <a href="#" class="sidebar-link" data-target="settings">
-            <i class="fas fa-cog"></i> Settings
+            <i class="fas fa-cog"></i> Pengaturan Situs
           </a>
         </li>
       </ul>
 
       <div class="sidebar-footer">
         <a href="index.html" class="logout-btn">
-          <i class="fas fa-sign-out-alt"></i> Back to Site
+          <i class="fas fa-sign-out-alt"></i> Kembali ke Situs
         </a>
       </div>
     </aside>
@@ -79,13 +79,13 @@
           <button class="hamburger-dashboard" id="openSidebar">
             <i class="fas fa-bars"></i>
           </button>
-          <h2 class="page-title" id="dashboardPageTitle">Dashboard Overview</h2>
+          <h2 class="page-title" id="dashboardPageTitle">Ringkasan Dashboard</h2>
         </div>
 
         <div class="topbar-right">
           <div class="search-bar">
             <i class="fas fa-search"></i>
-            <input type="text" id="globalSearch" placeholder="Search..." />
+            <input type="text" id="globalSearch" placeholder="Cari..." />
           </div>
           <button
             class="dark-toggle"
@@ -120,10 +120,10 @@
             <div class="stat-card">
               <div class="stat-icon income"><i class="fas fa-wallet"></i></div>
               <div class="stat-details">
-                <p>Total Revenue</p>
+                <p>Total Pendapatan</p>
                 <h3>Rp 124.5M</h3>
                 <span class="trend positive"
-                  ><i class="fas fa-arrow-up"></i> +12% this month</span
+                  ><i class="fas fa-arrow-up"></i> +12% bulan ini</span
                 >
               </div>
             </div>
@@ -132,17 +132,17 @@
                 <i class="fas fa-calendar-check"></i>
               </div>
               <div class="stat-details">
-                <p>Active Bookings</p>
+                <p>Pemesanan Aktif</p>
                 <h3>45</h3>
                 <span class="trend positive"
-                  ><i class="fas fa-arrow-up"></i> +5% this week</span
+                  ><i class="fas fa-arrow-up"></i> +5% minggu ini</span
                 >
               </div>
             </div>
             <div class="stat-card">
               <div class="stat-icon cars"><i class="fas fa-car"></i></div>
               <div class="stat-details">
-                <p>Available Cars</p>
+                <p>Mobil Tersedia</p>
                 <h3>12 <span>/ 30</span></h3>
                 <span class="trend neutral">Normal</span>
               </div>
@@ -150,10 +150,10 @@
             <div class="stat-card">
               <div class="stat-icon users"><i class="fas fa-users"></i></div>
               <div class="stat-details">
-                <p>Total Customers</p>
+                <p>Total Pelanggan</p>
                 <h3>892</h3>
                 <span class="trend positive"
-                  ><i class="fas fa-arrow-up"></i> +18 new today</span
+                  ><i class="fas fa-arrow-up"></i> +18 baru hari ini</span
                 >
               </div>
             </div>
@@ -163,11 +163,11 @@
             <!-- Chart Section -->
             <div class="chart-section dashboard-card">
               <div class="card-header">
-                <h3>Revenue Overview</h3>
+                <h3>Grafik Pendapatan</h3>
                 <select class="filter-select">
-                  <option>This Week</option>
-                  <option>This Month</option>
-                  <option>This Year</option>
+                  <option>Minggu Ini</option>
+                  <option>Bulan Ini</option>
+                  <option>Tahun Ini</option>
                 </select>
               </div>
               <div class="chart-container">
@@ -178,7 +178,7 @@
             <!-- Popular Cars -->
             <div class="popular-cars dashboard-card">
               <div class="card-header">
-                <h3>Top Rented Cars</h3>
+                <h3>Mobil Terlaris Disewa</h3>
               </div>
               <div class="popular-list">
                 <div class="popular-item">
@@ -188,9 +188,9 @@
                   />
                   <div class="popular-info">
                     <h4>Toyota Alphard</h4>
-                    <p>Premium</p>
+                    <p>Mewah</p>
                   </div>
-                  <span class="rent-count">24 Rents</span>
+                  <span class="rent-count">24x Disewa</span>
                 </div>
                 <div class="popular-item">
                   <img
@@ -201,7 +201,7 @@
                     <h4>Pajero Sport</h4>
                     <p>SUV</p>
                   </div>
-                  <span class="rent-count">18 Rents</span>
+                  <span class="rent-count">18x Disewa</span>
                 </div>
                 <div class="popular-item">
                   <img
@@ -210,9 +210,9 @@
                   />
                   <div class="popular-info">
                     <h4>Toyota Avanza</h4>
-                    <p>Economy</p>
+                    <p>Ekonomi</p>
                   </div>
-                  <span class="rent-count">32 Rents</span>
+                  <span class="rent-count">32x Disewa</span>
                 </div>
               </div>
             </div>
@@ -221,22 +221,22 @@
           <!-- Recent Bookings Table -->
           <div class="recent-bookings dashboard-card">
             <div class="card-header">
-              <h3>Recent Bookings</h3>
+              <h3>Pemesanan Terbaru</h3>
               <button class="btn-outline-sm" id="viewAllBookingsBtn">
-                View All
+                Lihat Semua
               </button>
             </div>
             <div class="table-responsive">
               <table class="dashboard-table">
                 <thead>
                   <tr>
-                    <th>Booking ID</th>
-                    <th>Customer</th>
-                    <th>Car</th>
-                    <th>Pickup Date</th>
-                    <th>Return Date</th>
+                    <th>Kode Booking</th>
+                    <th>Pelanggan</th>
+                    <th>Mobil</th>
+                    <th>Tgl Penjemputan</th>
+                    <th>Tgl Pengembalian</th>
                     <th>Status</th>
-                    <th>Amount</th>
+                    <th>Total Biaya</th>
                   </tr>
                 </thead>
                 <tbody id="recentBookingsTable">
@@ -253,16 +253,16 @@
         <div id="view-bookings" class="dashboard-view">
           <div class="dashboard-card">
             <div class="card-header">
-              <h3>Bookings List</h3>
+              <h3>Daftar Pemesanan</h3>
               <div class="bookings-actions">
                 <select class="filter-select" id="bookingsFilter">
-                  <option value="all">All Bookings</option>
-                  <option value="active">Active</option>
-                  <option value="completed">Completed</option>
-                  <option value="pending">Pending</option>
+                  <option value="all">Semua Pemesanan</option>
+                  <option value="active">Aktif</option>
+                  <option value="completed">Selesai</option>
+                  <option value="pending">Menunggu</option>
                 </select>
                 <button class="btn-primary-sm" id="btnNewBooking">
-                  <i class="fas fa-plus"></i> New Booking
+                  <i class="fas fa-plus"></i> Pemesanan Baru
                 </button>
               </div>
             </div>
@@ -271,14 +271,14 @@
               <table class="dashboard-table">
                 <thead>
                   <tr>
-                    <th>Booking ID</th>
-                    <th>Customer</th>
-                    <th>Car</th>
-                    <th>Pickup Date</th>
-                    <th>Return Date</th>
+                    <th>Kode Booking</th>
+                    <th>Pelanggan</th>
+                    <th>Mobil</th>
+                    <th>Tgl Penjemputan</th>
+                    <th>Tgl Pengembalian</th>
                     <th>Status</th>
-                    <th>Amount</th>
-                    <th>Actions</th>
+                    <th>Total Biaya</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody id="fullBookingsTable">
@@ -294,9 +294,9 @@
              ========================================= -->
         <div id="view-fleet" class="dashboard-view">
           <div class="fleet-control-bar">
-            <h3>Fleet Directory</h3>
+            <h3>Direktori Armada</h3>
             <button class="btn-primary-sm" id="btnNewCar">
-              <i class="fas fa-plus"></i> Add New Car
+              <i class="fas fa-plus"></i> Tambah Mobil
             </button>
           </div>
           <div class="fleet-grid-dashboard" id="fleetGridDashboard">
@@ -310,19 +310,19 @@
         <div id="view-customers" class="dashboard-view">
           <div class="dashboard-card">
             <div class="card-header">
-              <h3>Customer Database</h3>
+              <h3>Database Pelanggan</h3>
             </div>
             <div class="table-responsive">
               <table class="dashboard-table">
                 <thead>
                   <tr>
-                    <th>Customer ID</th>
-                    <th>Name</th>
+                    <th>ID Pelanggan</th>
+                    <th>Nama</th>
                     <th>Email</th>
-                    <th>Phone</th>
-                    <th>Total Bookings</th>
+                    <th>Telepon</th>
+                    <th>Total Sewa</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody id="customersTable">
@@ -339,10 +339,10 @@
         <div id="view-settings" class="dashboard-view">
           <div class="settings-grid">
             <div class="dashboard-card settings-card">
-              <h3>Admin Profile</h3>
+              <h3>Profil Admin</h3>
               <form class="settings-form" id="adminProfileForm">
                 <div class="form-group-sm">
-                  <label>Display Name</label>
+                  <label>Nama Tampilan</label>
                   <input
                     type="text"
                     id="adminDisplayNameInput"
@@ -351,7 +351,7 @@
                   />
                 </div>
                 <div class="form-group-sm">
-                  <label>Email Address</label>
+                  <label>Alamat Email</label>
                   <input
                     type="email"
                     id="adminEmailInput"
@@ -360,7 +360,7 @@
                   />
                 </div>
                 <div class="form-group-sm">
-                  <label>New Password</label>
+                  <label>Kata Sandi Baru</label>
                   <input
                     type="password"
                     id="adminPasswordInput"
@@ -368,16 +368,16 @@
                   />
                 </div>
                 <button type="submit" class="btn-primary-sm">
-                  Save Profile
+                  Simpan Profil
                 </button>
               </form>
             </div>
 
             <div class="dashboard-card settings-card">
-              <h3>System Settings</h3>
+              <h3>Pengaturan Sistem</h3>
               <form class="settings-form" id="systemSettingsForm">
                 <div class="form-group-sm">
-                  <label>Business Name</label>
+                  <label>Nama Bisnis</label>
                   <input
                     type="text"
                     id="sysBusinessNameInput"
@@ -386,11 +386,11 @@
                   />
                 </div>
                 <div class="form-group-sm">
-                  <label>Default Tax (%)</label>
+                  <label>Pajak Default (%)</label>
                   <input type="number" id="sysTaxInput" value="10" required />
                 </div>
                 <div class="form-group-sm">
-                  <label>Insurance Fee (Rp / Day)</label>
+                  <label>Biaya Asuransi (Rp / Hari)</label>
                   <input
                     type="number"
                     id="sysInsuranceInput"
@@ -399,7 +399,7 @@
                   />
                 </div>
                 <button type="submit" class="btn-primary-sm">
-                  Save Config
+                  Simpan Konfigurasi
                 </button>
               </form>
             </div>
@@ -408,7 +408,7 @@
               class="dashboard-card settings-card"
               style="grid-column: span 2"
             >
-              <h3>Landing Page Content Editor</h3>
+              <h3>Editor Konten Halaman Utama</h3>
               <form class="settings-form" id="landingPageForm">
                 <!-- Fieldset 1: Hero & Promos -->
                 <fieldset
@@ -426,7 +426,7 @@
                       padding: 0 10px;
                     "
                   >
-                    Hero & Promos
+                    Hero & Promosi
                   </legend>
                   <div
                     style="
@@ -437,15 +437,15 @@
                     "
                   >
                     <div class="form-group-sm">
-                      <label>Hero Title</label>
+                      <label>Judul Hero</label>
                       <input type="text" id="setHeroTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Hero Tagline</label>
+                      <label>Tagline Hero</label>
                       <input type="text" id="setHeroTagline" required />
                     </div>
                     <div class="form-group-sm" style="grid-column: span 2">
-                      <label>Hero Subtitle</label>
+                      <label>Subjudul Hero</label>
                       <textarea
                         id="setHeroSub"
                         rows="2"
@@ -462,11 +462,11 @@
                       ></textarea>
                     </div>
                     <div class="form-group-sm">
-                      <label>Hero Button Text</label>
+                      <label>Teks Tombol Hero</label>
                       <input type="text" id="setHeroBtnText" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Promo Banner Text</label>
+                      <label>Teks Banner Promo</label>
                       <input type="text" id="setPromoText" required />
                     </div>
                   </div>
@@ -488,7 +488,7 @@
                       padding: 0 10px;
                     "
                   >
-                    About & Stats
+                    Tentang & Statistik
                   </legend>
                   <div
                     style="
@@ -499,15 +499,15 @@
                     "
                   >
                     <div class="form-group-sm">
-                      <label>About Us Title</label>
+                      <label>Judul Tentang Kami</label>
                       <input type="text" id="setAboutTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Clients Counter</label>
+                      <label>Jumlah Pelanggan</label>
                       <input type="number" id="setClients" required />
                     </div>
                     <div class="form-group-sm" style="grid-column: span 2">
-                      <label>About Us Text</label>
+                      <label>Teks Tentang Kami</label>
                       <textarea
                         id="setAboutText"
                         rows="3"
@@ -524,11 +524,11 @@
                       ></textarea>
                     </div>
                     <div class="form-group-sm">
-                      <label>Fleet Cars Counter</label>
+                      <label>Jumlah Unit Armada</label>
                       <input type="number" id="setCars" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Rating Counter</label>
+                      <label>Jumlah Rating</label>
                       <input type="number" step="0.1" id="setRating" required />
                     </div>
                   </div>
@@ -550,7 +550,7 @@
                       padding: 0 10px;
                     "
                   >
-                    Services
+                    Layanan
                   </legend>
                   <div
                     style="
@@ -561,35 +561,35 @@
                     "
                   >
                     <div class="form-group-sm">
-                      <label>Service 1 Title</label>
+                      <label>Judul Layanan 1</label>
                       <input type="text" id="setSrv1Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Service 1 Description</label>
+                      <label>Deskripsi Layanan 1</label>
                       <input type="text" id="setSrv1Desc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Service 2 Title</label>
+                      <label>Judul Layanan 2</label>
                       <input type="text" id="setSrv2Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Service 2 Description</label>
+                      <label>Deskripsi Layanan 2</label>
                       <input type="text" id="setSrv2Desc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Service 3 Title</label>
+                      <label>Judul Layanan 3</label>
                       <input type="text" id="setSrv3Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Service 3 Description</label>
+                      <label>Deskripsi Layanan 3</label>
                       <input type="text" id="setSrv3Desc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Service 4 Title</label>
+                      <label>Judul Layanan 4</label>
                       <input type="text" id="setSrv4Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Service 4 Description</label>
+                      <label>Deskripsi Layanan 4</label>
                       <input type="text" id="setSrv4Desc" required />
                     </div>
                   </div>
@@ -611,7 +611,7 @@
                       padding: 0 10px;
                     "
                   >
-                    Why Us & Process Steps
+                    Keunggulan & Alur Pemesanan
                   </legend>
                   <div
                     style="
@@ -622,31 +622,31 @@
                     "
                   >
                     <div class="form-group-sm" style="grid-column: span 2">
-                      <label>Why Choose Us Headline</label>
+                      <label>Judul Utama Mengapa Memilih Kami</label>
                       <input type="text" id="setWhyTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Feature 1 (Premium Fleet)</label>
+                      <label>Keunggulan 1 (Judul)</label>
                       <input type="text" id="setWhy1Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Feature 1 Desc</label>
+                      <label>Keunggulan 1 (Deskripsi)</label>
                       <input type="text" id="setWhy1Desc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Feature 2 (Best Price)</label>
+                      <label>Keunggulan 2 (Judul)</label>
                       <input type="text" id="setWhy2Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Feature 2 Desc</label>
+                      <label>Keunggulan 2 (Deskripsi)</label>
                       <input type="text" id="setWhy2Desc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Feature 3 (24/7 Support)</label>
+                      <label>Keunggulan 3 (Judul)</label>
                       <input type="text" id="setWhy3Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Feature 3 Desc</label>
+                      <label>Keunggulan 3 (Deskripsi)</label>
                       <input type="text" id="setWhy3Desc" required />
                     </div>
                     <div
@@ -658,31 +658,31 @@
                         margin-top: 10px;
                       "
                     >
-                      <label>How It Works Headline</label>
+                      <label>Judul Utama Cara Memesan</label>
                       <input type="text" id="setProcTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Step 1 (Select Vehicle)</label>
+                      <label>Langkah 1 (Judul)</label>
                       <input type="text" id="setProc1Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Step 1 Desc</label>
+                      <label>Langkah 1 (Deskripsi)</label>
                       <input type="text" id="setProc1Desc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Step 2 (Choose Dates)</label>
+                      <label>Langkah 2 (Judul)</label>
                       <input type="text" id="setProc2Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Step 2 Desc</label>
+                      <label>Langkah 2 (Deskripsi)</label>
                       <input type="text" id="setProc2Desc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Step 3 (Enjoy Journey)</label>
+                      <label>Langkah 3 (Judul)</label>
                       <input type="text" id="setProc3Title" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Step 3 Desc</label>
+                      <label>Langkah 3 (Deskripsi)</label>
                       <input type="text" id="setProc3Desc" required />
                     </div>
                   </div>
@@ -704,7 +704,7 @@
                       padding: 0 10px;
                     "
                   >
-                    Banners & Dynamic Headers
+                    Banner & Header Dinamis
                   </legend>
                   <div
                     style="
@@ -715,43 +715,43 @@
                     "
                   >
                     <div class="form-group-sm">
-                      <label>Fleet Catalog Title</label>
+                      <label>Judul Katalog Armada</label>
                       <input type="text" id="setCatalogTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Fleet Catalog Subtitle</label>
+                      <label>Subjudul Katalog Armada</label>
                       <input type="text" id="setCatalogSub" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Packages Section Title</label>
+                      <label>Judul Paket Harga</label>
                       <input type="text" id="setPackagesTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Packages Section Subtitle</label>
+                      <label>Subjudul Paket Harga</label>
                       <input type="text" id="setPackagesSub" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Safety Section Title</label>
+                      <label>Judul Standar Keamanan</label>
                       <input type="text" id="setSafetyTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Safety Section Description</label>
+                      <label>Deskripsi Standar Keamanan</label>
                       <input type="text" id="setSafetyDesc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Loyalty Club Title</label>
+                      <label>Judul Klub Member</label>
                       <input type="text" id="setLoyaltyTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Loyalty Club Description</label>
+                      <label>Deskripsi Klub Member</label>
                       <input type="text" id="setLoyaltyDesc" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Middle CTA Title</label>
+                      <label>Judul Banner CTA</label>
                       <input type="text" id="setCtaTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Middle CTA Description</label>
+                      <label>Deskripsi Banner CTA</label>
                       <input type="text" id="setCtaDesc" required />
                     </div>
                   </div>
@@ -773,7 +773,7 @@
                       padding: 0 10px;
                     "
                   >
-                    Requirements, FAQs & Contact
+                    Syarat, FAQ & Kontak
                   </legend>
                   <div
                     style="
@@ -784,47 +784,47 @@
                     "
                   >
                     <div class="form-group-sm" style="grid-column: span 2">
-                      <label>Requirements Title</label>
+                      <label>Judul Syarat Ketentuan</label>
                       <input type="text" id="setTermsTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Requirement 1</label>
+                      <label>Syarat 1</label>
                       <input type="text" id="setTerm1" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Requirement 2</label>
+                      <label>Syarat 2</label>
                       <input type="text" id="setTerm2" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Requirement 3</label>
+                      <label>Syarat 3</label>
                       <input type="text" id="setTerm3" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Requirement 4</label>
+                      <label>Syarat 4</label>
                       <input type="text" id="setTerm4" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>FAQ Section Title</label>
+                      <label>Judul Bagian FAQ</label>
                       <input type="text" id="setFaqTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>FAQ Section Subtitle</label>
+                      <label>Subjudul Bagian FAQ</label>
                       <input type="text" id="setFaqSub" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Contact Phone</label>
+                      <label>Telepon Kontak</label>
                       <input type="text" id="setPhone" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Contact Email</label>
+                      <label>Email Kontak</label>
                       <input type="email" id="setEmail" required />
                     </div>
                     <div class="form-group-sm" style="grid-column: span 2">
-                      <label>Contact Address</label>
+                      <label>Alamat Kontak</label>
                       <input type="text" id="setAddress" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Working Hours</label>
+                      <label>Jam Operasional</label>
                       <input type="text" id="setHours" required />
                     </div>
                   </div>
@@ -846,7 +846,7 @@
                       padding: 0 10px;
                     "
                   >
-                    Newsletters & Footer
+                    Newsletter & Footer
                   </legend>
                   <div
                     style="
@@ -857,19 +857,19 @@
                     "
                   >
                     <div class="form-group-sm">
-                      <label>Newsletter Title</label>
+                      <label>Judul Newsletter</label>
                       <input type="text" id="setNewsTitle" required />
                     </div>
                     <div class="form-group-sm">
-                      <label>Newsletter Description</label>
+                      <label>Deskripsi Newsletter</label>
                       <input type="text" id="setNewsDesc" required />
                     </div>
                     <div class="form-group-sm" style="grid-column: span 2">
-                      <label>Footer Brand Desc</label>
+                      <label>Deskripsi Brand Footer</label>
                       <input type="text" id="setFooterDesc" required />
                     </div>
                     <div class="form-group-sm" style="grid-column: span 2">
-                      <label>Footer Copyright Text</label>
+                      <label>Teks Hak Cipta Footer</label>
                       <input type="text" id="setCopyright" required />
                     </div>
                   </div>
@@ -880,7 +880,7 @@
                   class="btn-primary-sm"
                   style="font-size: 1rem; padding: 12px 24px"
                 >
-                  Update Landing Page
+                  Perbarui Halaman Utama
                 </button>
               </form>
             </div>

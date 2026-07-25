@@ -321,13 +321,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const titleMap = {
-      overview: "Dashboard Overview",
-      bookings: "Bookings Management",
-      fleet: "Fleet Management",
-      customers: "Customer Database",
-      settings: "System Settings",
+      overview: "Ringkasan Dashboard",
+      bookings: "Manajemen Pemesanan",
+      fleet: "Manajemen Armada",
+      customers: "Database Pelanggan",
+      settings: "Pengaturan Situs",
     };
-    pageTitle.textContent = titleMap[targetId] || "Overview";
+    pageTitle.textContent = titleMap[targetId] || "Ringkasan";
 
     if (targetId === "bookings") renderBookingsTable();
     if (targetId === "fleet") renderFleetGrid();
@@ -407,10 +407,10 @@ document.addEventListener("DOMContentLoaded", () => {
     revenueChart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
         datasets: [
           {
-            label: "Revenue (Rp)",
+            label: "Pendapatan (Rp)",
             data: [
               1500000, 2300000, 1800000, 3200000, 2800000, 4500000, 5100000,
             ],
@@ -548,10 +548,15 @@ document.addEventListener("DOMContentLoaded", () => {
       updateOverviewMetrics();
 
       if (window.Swal) {
+        const statusMap = {
+          Active: "Diterima",
+          Completed: "Selesai",
+          Cancelled: "Dibatalkan",
+        };
         Swal.fire({
           icon: "success",
-          title: `Booking ${newStatus}!`,
-          text: `Booking code ${id} has been marked as ${newStatus}.`,
+          title: `Pemesanan ${statusMap[newStatus] || newStatus}!`,
+          text: `Kode booking ${id} telah ditandai sebagai ${statusMap[newStatus] || newStatus}.`,
           timer: 1500,
           showConfirmButton: false,
         });
@@ -577,15 +582,15 @@ document.addEventListener("DOMContentLoaded", () => {
       let actionButtons = "";
       if (b.status === "Pending") {
         actionButtons = `
-          <button class="btn-success-sm" onclick="changeBookingStatus('${b.id}', 'Active')"><i class="fas fa-check"></i> Accept</button>
-          <button class="btn-danger-sm" onclick="changeBookingStatus('${b.id}', 'Cancelled')"><i class="fas fa-times"></i> Cancel</button>
+          <button class="btn-success-sm" onclick="changeBookingStatus('${b.id}', 'Active')"><i class="fas fa-check"></i> Terima</button>
+          <button class="btn-danger-sm" onclick="changeBookingStatus('${b.id}', 'Cancelled')"><i class="fas fa-times"></i> Batal</button>
         `;
       } else if (b.status === "Active") {
         actionButtons = `
-          <button class="btn-primary-sm" onclick="changeBookingStatus('${b.id}', 'Completed')"><i class="fas fa-flag-checkered"></i> Finish</button>
+          <button class="btn-primary-sm" onclick="changeBookingStatus('${b.id}', 'Completed')"><i class="fas fa-flag-checkered"></i> Selesai</button>
         `;
       } else {
-        actionButtons = `<span style="font-size:0.8rem; color:var(--text-light)">No action required</span>`;
+        actionButtons = `<span style="font-size:0.8rem; color:var(--text-light)">Tidak ada aksi</span>`;
       }
 
       tr.innerHTML = `
@@ -594,7 +599,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${b.car}</td>
         <td>${b.pickup}</td>
         <td>${b.return}</td>
-        <td><span class="status-badge ${statusClass}">${b.status}</span></td>
+        <td><span class="status-badge ${statusClass}">${b.status === "Pending" ? "Menunggu" : b.status === "Active" ? "Aktif" : b.status === "Completed" ? "Selesai" : "Dibatalkan"}</span></td>
         <td><strong>${b.amount}</strong></td>
         <td><div class="actions-cell">${actionButtons}</div></td>
       `;
@@ -626,13 +631,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!grid) return;
     grid.innerHTML = "";
 
+    const statusBadgeText = {
+      available: "TERSEDIA",
+      rented: "DISEWA",
+      maintenance: "PERAWATAN",
+    };
+
     state.fleet.forEach((car) => {
       const card = document.createElement("div");
       card.className = "fleet-card-dashboard";
       card.innerHTML = `
         <div class="fleet-img-wrap">
           <img src="${car.img}" alt="${car.name}" />
-          <span class="fleet-status-badge ${car.status}">${car.status.toUpperCase()}</span>
+          <span class="fleet-status-badge ${car.status}">${statusBadgeText[car.status] || car.status.toUpperCase()}</span>
         </div>
         <div class="fleet-info-dashboard">
           <div class="fleet-info-header">
@@ -647,9 +658,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="fleet-price-row">
             <div>
               <h5>${car.price.split("/")[0]}</h5>
-              <span>Per day</span>
+              <span>Per hari</span>
             </div>
-            <button class="btn-outline-sm" onclick="toggleCarStatus('${car.name}')">Toggle Status</button>
+            <button class="btn-outline-sm" onclick="toggleCarStatus('${car.name}')">Ubah Status</button>
           </div>
         </div>
       `;
@@ -678,11 +689,11 @@ document.addEventListener("DOMContentLoaded", () => {
         `,
             )
             .join("")
-        : '<p style="font-size:0.85rem;color:var(--text-light)">No rental records found in session history.</p>';
+        : '<p style="font-size:0.85rem;color:var(--text-light)">Tidak ada riwayat sewa dalam histori sesi.</p>';
 
     if (window.Swal) {
       Swal.fire({
-        title: `Customer Profile`,
+        title: `Profil Pelanggan`,
         html: `
           <div style="text-align: left; line-height: 1.8; font-family: inherit;">
             <div style="display:flex;align-items:center;gap:15px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:15px;">
@@ -695,10 +706,10 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </div>
             <p><strong>Email:</strong> ${cust.email}</p>
-            <p><strong>Phone:</strong> ${cust.phone}</p>
-            <p><strong>Status:</strong> <span class="status-badge ${cust.status === "Active" ? "completed" : "cancelled"}" style="float:none;display:inline-block;padding:2px 8px;font-size:0.8rem;">${cust.status}</span></p>
+            <p><strong>Telepon:</strong> ${cust.phone}</p>
+            <p><strong>Status:</strong> <span class="status-badge ${cust.status === "Active" ? "completed" : "cancelled"}" style="float:none;display:inline-block;padding:2px 8px;font-size:0.8rem;">${cust.status === "Active" ? "Aktif" : "Nonaktif"}</span></p>
             <div style="margin-top:20px;">
-              <h5 style="margin-bottom:8px;font-size:0.9rem;border-bottom:1px solid var(--border);padding-bottom:5px;">Recent Bookings</h5>
+              <h5 style="margin-bottom:8px;font-size:0.9rem;border-bottom:1px solid var(--border);padding-bottom:5px;">Pemesanan Terbaru</h5>
               <div style="max-height:150px;overflow-y:auto;">
                 ${bookingsListHtml}
               </div>
@@ -706,11 +717,11 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         `,
         confirmButtonColor: "#d4af37",
-        confirmButtonText: "Close File",
+        confirmButtonText: "Tutup Profil",
       });
     } else {
       alert(
-        `Customer: ${cust.name}\nEmail: ${cust.email}\nPhone: ${cust.phone}\nBookings: ${cust.bookings}`,
+        `Pelanggan: ${cust.name}\nEmail: ${cust.email}\nTelepon: ${cust.phone}\nSewa: ${cust.bookings}`,
       );
     }
   };
@@ -727,10 +738,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${c.name}</td>
         <td>${c.email}</td>
         <td>${c.phone}</td>
-        <td>${c.bookings} Bookings</td>
-        <td><span class="status-badge ${c.status === "Active" ? "completed" : "cancelled"}">${c.status}</span></td>
+        <td>${c.bookings} Sewa</td>
+        <td><span class="status-badge ${c.status === "Active" ? "completed" : "cancelled"}">${c.status === "Active" ? "Aktif" : "Nonaktif"}</span></td>
         <td>
-          <button class="btn-outline-sm" onclick="viewCustomerFile('${c.id}')"><i class="fas fa-eye"></i> View</button>
+          <button class="btn-outline-sm" onclick="viewCustomerFile('${c.id}')"><i class="fas fa-eye"></i> Lihat</button>
         </td>
       `;
       tbody.appendChild(tr);
@@ -745,11 +756,11 @@ document.addEventListener("DOMContentLoaded", () => {
     btnNewBooking.addEventListener("click", () => {
       if (window.Swal) {
         Swal.fire({
-          title: "Register New Booking",
+          title: "Registrasi Pemesanan Baru",
           html: `
-            <input id="swal-custName" class="swal2-input" placeholder="Customer Name">
+            <input id="swal-custName" class="swal2-input" placeholder="Nama Pelanggan">
             <select id="swal-carType" class="swal2-input">
-              <option value="">Choose vehicle...</option>
+              <option value="">Pilih kendaraan...</option>
               ${state.fleet
                 .filter((c) => c.status === "available")
                 .map(
@@ -763,7 +774,7 @@ document.addEventListener("DOMContentLoaded", () => {
           `,
           focusConfirm: false,
           showCancelButton: true,
-          confirmButtonText: "Submit",
+          confirmButtonText: "Simpan Pemesanan",
           preConfirm: () => {
             const customer = document
               .getElementById("swal-custName")
@@ -773,11 +784,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const retDate = document.getElementById("swal-return").value;
 
             if (!customer || !car || !pickup || !retDate) {
-              Swal.showValidationMessage("Please fill out all fields");
+              Swal.showValidationMessage("Harap isi semua kolom");
             }
             if (new Date(retDate) <= new Date(pickup)) {
               Swal.showValidationMessage(
-                "Return date must be after pickup date",
+                "Tanggal pengembalian harus setelah tanggal penjemputan",
               );
             }
             return { customer, car, pickup, return: retDate };
@@ -812,8 +823,8 @@ document.addEventListener("DOMContentLoaded", () => {
             renderRecentBookings();
             updateOverviewMetrics();
             Swal.fire(
-              "Created!",
-              "The booking is now pending admin action.",
+              "Berhasil Ditambahkan!",
+              "Pemesanan baru telah berhasil dicatat.",
               "success",
             );
           }
@@ -828,24 +839,24 @@ document.addEventListener("DOMContentLoaded", () => {
     btnNewCar.addEventListener("click", () => {
       if (window.Swal) {
         Swal.fire({
-          title: "Add Car to Fleet",
+          title: "Tambah Mobil ke Armada",
           html: `
-            <input id="swal-carName" class="swal2-input" placeholder="Car Name (e.g. Civic)">
+            <input id="swal-carName" class="swal2-input" placeholder="Nama Mobil (mis. Civic)">
             <select id="swal-carCat" class="swal2-input">
-              <option value="economy">Economy</option>
+              <option value="economy">Ekonomi</option>
               <option value="suv">SUV</option>
-              <option value="premium">Premium</option>
+              <option value="premium">Mewah</option>
               <option value="van">Van</option>
             </select>
-            <input id="swal-gear" class="swal2-input" placeholder="Transmission (CVT / Manual / Automatic)">
-            <input id="swal-seats" class="swal2-input" type="text" placeholder="Seats (e.g. 5 Seats)">
-            <input id="swal-fuel" class="swal2-input" placeholder="Fuel (Petrol / Diesel / Hybrid)">
-            <input id="swal-priceDay" class="swal2-input" placeholder="Price/Day (e.g. Rp 400.000/day)">
-            <input id="swal-img" class="swal2-input" placeholder="Image URL (can leave empty)">
+            <input id="swal-gear" class="swal2-input" placeholder="Transmisi (CVT / Manual / Otomatis)">
+            <input id="swal-seats" class="swal2-input" type="text" placeholder="Kapasitas (mis. 5 Kursi)">
+            <input id="swal-fuel" class="swal2-input" placeholder="Bahan Bakar (Bensin / Diesel / Hybrid)">
+            <input id="swal-priceDay" class="swal2-input" placeholder="Harga/Hari (mis. Rp 400.000/hari)">
+            <input id="swal-img" class="swal2-input" placeholder="URL Gambar (opsional)">
           `,
           focusConfirm: false,
           showCancelButton: true,
-          confirmButtonText: "Add Car",
+          confirmButtonText: "Tambah Mobil",
           preConfirm: () => {
             const name = document.getElementById("swal-carName").value.trim();
             const category = document.getElementById("swal-carCat").value;
@@ -856,31 +867,31 @@ document.addEventListener("DOMContentLoaded", () => {
             let img = document.getElementById("swal-img").value.trim();
 
             if (!name || !gearbox || !seats || !fuel || !price) {
-              Swal.showValidationMessage("Please fill all required fields");
+              Swal.showValidationMessage("Harap isi semua kolom wajib");
             }
             if (!img)
               img =
                 "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&q=80";
 
             const badgeMap = {
-              economy: "Economy",
+              economy: "Ekonomi",
               suv: "SUV",
-              premium: "Premium",
+              premium: "Mewah",
               van: "Van",
             };
-            const badge = badgeMap[category] || "Economy";
+            const badge = badgeMap[category] || "Ekonomi";
 
             return {
               name,
               category,
               img,
-              desc: `${name} is an exceptional vehicle in our fleet, offering top performance, reliability and comfort for all kinds of trips.`,
+              desc: `${name} adalah kendaraan luar biasa dalam armada kami, menawarkan performa, keandalan, dan kenyamanan terbaik untuk semua jenis perjalanan.`,
               features: ["AC", "Bluetooth", "USB Charger", "Power Windows"],
               icons: ["fa-wind", "fa-bluetooth", "fa-usb", "fa-car-side"],
               transmission: gearbox,
               seats,
               fuel,
-              baggage: "Medium",
+              baggage: "Sedang",
               price,
               badge,
               badgeClass: category,
@@ -894,8 +905,8 @@ document.addEventListener("DOMContentLoaded", () => {
             renderFleetGrid();
             updateOverviewMetrics();
             Swal.fire(
-              "Added!",
-              "New vehicle has been added to directory.",
+              "Berhasil!",
+              "Mobil baru telah ditambahkan ke armada.",
               "success",
             );
           }
@@ -1095,12 +1106,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.Swal) {
         Swal.fire({
           icon: "success",
-          title: "Saved!",
-          text: "Landing page content updated successfully. Refresh the homepage to see changes.",
+          title: "Tersimpan!",
+          text: "Konten halaman utama berhasil diperbarui. Muat ulang halaman depan untuk melihat perubahan.",
           confirmButtonColor: "#d4af37",
         });
       } else {
-        alert("Landing page content updated!");
+        alert("Konten halaman utama diperbarui!");
       }
     });
   }
@@ -1126,12 +1137,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.Swal) {
         Swal.fire({
           icon: "success",
-          title: "Profile Updated!",
-          text: "Admin profile information has been saved.",
+          title: "Profil Diperbarui!",
+          text: "Informasi profil admin telah disimpan.",
           confirmButtonColor: "#d4af37",
         });
       } else {
-        alert("Profile saved!");
+        alert("Profil disimpan!");
       }
     });
   }
@@ -1153,12 +1164,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.Swal) {
         Swal.fire({
           icon: "success",
-          title: "Config Saved!",
-          text: "System settings configurations have been updated.",
+          title: "Konfigurasi Tersimpan!",
+          text: "Pengaturan konfigurasi sistem telah diperbarui.",
           confirmButtonColor: "#d4af37",
         });
       } else {
-        alert("Settings saved!");
+        alert("Pengaturan disimpan!");
       }
     });
   }
