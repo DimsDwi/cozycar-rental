@@ -275,7 +275,13 @@ const defaultLandingData = {
   rating: 5,
 };
 
-// Load shared data with full Indonesian sync
+// Force version migration to Indonesian defaults
+if (localStorage.getItem("cozycar_lang_v4") !== "true") {
+  localStorage.removeItem("cozycar_fleet");
+  localStorage.removeItem("cozycar_landing_data");
+  localStorage.setItem("cozycar_lang_v4", "true");
+}
+
 let sharedFleet = JSON.parse(localStorage.getItem("cozycar_fleet"));
 if (
   !sharedFleet ||
@@ -291,8 +297,7 @@ if (!landingData || landingData.heroTagline?.includes("Premium · Reliable")) {
   landingData = defaultLandingData;
   localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
 } else {
-  // Always update keys from defaultLandingData to ensure clean Indonesian text
-  landingData = { ...defaultLandingData, ...landingData };
+  landingData = defaultLandingData;
   localStorage.setItem("cozycar_landing_data", JSON.stringify(landingData));
 }
 
