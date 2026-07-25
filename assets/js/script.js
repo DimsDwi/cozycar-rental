@@ -1078,50 +1078,41 @@ function initEmptyLinks() {
   });
 }
 
-/* ===== Secret Admin Access Trigger ===== */
+/* ===== Admin Access Button Handler ===== */
 function initAdminSecretAccess() {
-  const copyrightEl = document.getElementById("footerCopyright");
-  if (copyrightEl) {
-    let clickCount = 0;
-    let timer;
-    copyrightEl.addEventListener("click", () => {
-      clickCount++;
-      clearTimeout(timer);
-      if (clickCount >= 3) {
-        clickCount = 0;
-        if (window.Swal) {
-          Swal.fire({
-            title: "Akses Dashboard Admin",
-            input: "password",
-            inputLabel: "Masukkan Kata Sandi Admin",
-            inputPlaceholder: "Kata sandi...",
-            showCancelButton: true,
-            confirmButtonText: "Masuk",
-            cancelButtonText: "Batal",
-            confirmButtonColor: "#d4af37",
-          }).then((result) => {
-            if (result.isConfirmed) {
-              if (result.value === "admin123" || result.value === "admin") {
-                sessionStorage.setItem("cozycar_admin_auth", "true");
-                window.location.href = "dashboard.html";
-              } else {
-                Swal.fire("Akses Ditolak!", "Kata sandi admin salah.", "error");
-              }
+  const btn = document.getElementById("adminLoginBtn");
+  if (btn) {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (window.Swal) {
+        Swal.fire({
+          title: "Akses Dashboard Admin",
+          text: "Masukkan kata sandi untuk masuk ke panel admin",
+          input: "password",
+          inputLabel: "Kata Sandi Admin",
+          inputPlaceholder: "Masukkan kata sandi...",
+          showCancelButton: true,
+          confirmButtonText: "Masuk Dashboard",
+          cancelButtonText: "Batal",
+          confirmButtonColor: "#d4af37",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            if (result.value === "admin123" || result.value === "admin") {
+              sessionStorage.setItem("cozycar_admin_auth", "true");
+              window.location.href = "dashboard.html";
+            } else {
+              Swal.fire("Akses Ditolak!", "Kata sandi admin salah.", "error");
             }
-          });
-        } else {
-          const pass = prompt("Masukkan Kata Sandi Admin:");
-          if (pass === "admin123" || pass === "admin") {
-            sessionStorage.setItem("cozycar_admin_auth", "true");
-            window.location.href = "dashboard.html";
-          } else if (pass) {
-            alert("Kata sandi admin salah!");
           }
-        }
+        });
       } else {
-        timer = setTimeout(() => {
-          clickCount = 0;
-        }, 600);
+        const pass = prompt("Masukkan Kata Sandi Admin:");
+        if (pass === "admin123" || pass === "admin") {
+          sessionStorage.setItem("cozycar_admin_auth", "true");
+          window.location.href = "dashboard.html";
+        } else if (pass) {
+          alert("Kata sandi admin salah!");
+        }
       }
     });
   }
