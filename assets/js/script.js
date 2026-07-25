@@ -59,13 +59,7 @@ const defaultFleet = [
     category: "economy",
     img: "https://th.bing.com/th/id/OIP.m85mOLIDQ7piIHSHy_spLgHaEo?w=328&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
     desc: "Kompak namun tangguh, Toyota Raize adalah teman perjalanan perkotaan Anda. Desain stylish dan transmisi CVT yang responsif membuat navigasi lalu lintas kota menjadi menyenangkan.",
-    features: [
-      "AC",
-      "Bluetooth",
-      "Navigasi GPS",
-      "USB Charger",
-      "Kamera 360",
-    ],
+    features: ["AC", "Bluetooth", "Navigasi GPS", "USB Charger", "Kamera 360"],
     icons: [
       "fa-wind",
       "fa-bluetooth",
@@ -203,7 +197,8 @@ const defaultLandingData = {
   srv2Desc:
     "Sewa mobil beserta pengemudi berpengalaman, ramah, dan menguasai rute perjalanan.",
   srv3Title: "Antar Jemput Bandara",
-  srv3Desc: "Layanan penjemputan dan pengantaran bandara yang tepat waktu dan nyaman di Yogyakarta.",
+  srv3Desc:
+    "Layanan penjemputan dan pengantaran bandara yang tepat waktu dan nyaman di Yogyakarta.",
   srv4Title: "Mobil Pengantin",
   srv4Desc:
     "Jadikan hari istimewa Anda berkesan dengan mobil mewah yang bersih dan elegan.",
@@ -235,7 +230,8 @@ const defaultLandingData = {
     "Pilih dari berbagai kategori kendaraan berkualitas untuk setiap jenis perjalanan Anda.",
   // Pricing Packages
   packagesTitle: "Paket Harga Sewa",
-  packagesSub: "Pilih skema harga yang paling sesuai dengan durasi dan kebutuhan perjalanan Anda.",
+  packagesSub:
+    "Pilih skema harga yang paling sesuai dengan durasi dan kebutuhan perjalanan Anda.",
   // Safety Section
   safetyTitle: "Kendaraan Aman & Higienis",
   safetyDesc:
@@ -253,7 +249,8 @@ const defaultLandingData = {
   term1: "Identitas diri asli yang berlaku (KTP/Paspor) untuk verifikasi data.",
   term2:
     "Surat Izin Mengemudi (SIM A / SIM Internasional) yang masih berlaku untuk lepas kunci.",
-  term3: "Deposit jaminan sebesar Rp 500.000 (dikembalikan saat pengembalian mobil).",
+  term3:
+    "Deposit jaminan sebesar Rp 500.000 (dikembalikan saat pengembalian mobil).",
   term4: "BBM dikembalikan sesuai dengan posisi awal saat penjemputan mobil.",
   // FAQ Section
   faqTitle: "Pertanyaan yang Sering Diajukan",
@@ -265,7 +262,8 @@ const defaultLandingData = {
   hours: "Senin–Sabtu: 08.00–20.00 WIB",
   // Newsletter
   newsTitle: "Berlangganan Newsletter",
-  newsDesc: "Dapatkan penawaran eksklusif dan kode diskon mingguan langsung di email Anda.",
+  newsDesc:
+    "Dapatkan penawaran eksklusif dan kode diskon mingguan langsung di email Anda.",
   // Footer
   footerDesc:
     "Pengalaman sewa mobil premium yang dirancang bagi Anda yang mengutamakan kenyamanan, gaya, dan keandalan.",
@@ -279,7 +277,11 @@ const defaultLandingData = {
 
 // Load shared data with full Indonesian sync
 let sharedFleet = JSON.parse(localStorage.getItem("cozycar_fleet"));
-if (!sharedFleet || sharedFleet.length === 0 || sharedFleet[0].seats?.includes("Seats")) {
+if (
+  !sharedFleet ||
+  sharedFleet.length === 0 ||
+  sharedFleet[0].seats?.includes("Seats")
+) {
   sharedFleet = defaultFleet;
   localStorage.setItem("cozycar_fleet", JSON.stringify(sharedFleet));
 }

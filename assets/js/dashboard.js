@@ -407,7 +407,15 @@ document.addEventListener("DOMContentLoaded", () => {
     revenueChart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+        labels: [
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jumat",
+          "Sabtu",
+          "Minggu",
+        ],
         datasets: [
           {
             label: "Pendapatan (Rp)",
